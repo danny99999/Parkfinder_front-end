@@ -15,7 +15,7 @@
           <b-dropdown-item href="/karolina">Karolina</b-dropdown-item>
           <b-dropdown-item href="/trznica">Tržnica</b-dropdown-item>
           <b-dropdown-item href="/dobriceva">Dobrićeva</b-dropdown-item>
-          <b-dropdown-item href="/drosina">Drosina</b-dropdown-item>
+          <b-dropdown-item href="/bolnica">Bolnica</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item href="/kalkulator">Kalkulator</b-nav-item>
       </b-navbar-nav>
@@ -67,7 +67,7 @@ export default {
   background-color:#044ca4 !important;
   width: 100%;
   height: 7%;
-
+  border-bottom: 1px solid black;
 }
 
 hr {

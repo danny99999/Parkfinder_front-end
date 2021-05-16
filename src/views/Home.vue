@@ -7,7 +7,6 @@
     <br>
     <br>
     <b-container class="bv-example-row" fluid="md">
-     
         <b-col>
             <Kartica v-for="Kartica in kartice" :key="Kartica" :info="Kartica"></Kartica>
         </b-col>

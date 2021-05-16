@@ -5,7 +5,7 @@ import Rojc from "@/views/Rojc.vue";
 import Karolina from "@/views/Karolina.vue";
 import Trznica from "@/views/Trznica.vue";
 import Dobriceva from "@/views/Dobriceva.vue";
-import Drosina from "@/views/Drosina.vue";
+import Bolnica from "@/views/Bolnica.vue";
 import Karta from "@/views/Karta.vue";
 import Kalkulator from "@/views/Kalkulator.vue";
 import Obavijesti from "@/views/Obavijesti.vue";
@@ -41,9 +41,9 @@ const routes = [
     component: Dobriceva
   },  
   {
-    path: "/drosina",
-    name: "Drosina",
-    component: Drosina
+    path: "/bolnica",
+    name: "Bolnica",
+    component: Bolnica
   },  
   {
     path: "/karta",
