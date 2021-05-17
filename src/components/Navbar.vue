@@ -18,6 +18,7 @@
           <b-dropdown-item href="/bolnica">Bolnica</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item href="/kalkulator">Kalkulator</b-nav-item>
+        <b-nav-item href="/rezervacija_parkinga">Rezervacija Parkinga</b-nav-item>
       </b-navbar-nav>
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto">

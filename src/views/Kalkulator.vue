@@ -193,6 +193,6 @@ import Navbar from '@/components/Navbar.vue';
 
 <style lang="scss">
 .bgkalkus{
-  background-color: aqua;
+  background-color: orange
 }
 </style>

@@ -11,11 +11,14 @@ import Kalkulator from "@/views/Kalkulator.vue";
 import Obavijesti from "@/views/Obavijesti.vue";
 import Sign_up from "@/views/Sign_up.vue";
 import Sign_in from "@/views/Sign_in.vue";
+import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
+import Podaci_vozila from "@/views/Podaci_vozila.vue";
+import Podaci_rezervacije from "@/views/Podaci_rezervacije.vue";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/home",
+    path: "/",
     name: "Home",
     component: Home
   },
@@ -66,9 +69,24 @@ const routes = [
     component: Sign_up
   },
 {
-  path: "/",
+  path: "/sign_in",
   name: "Sign_in",
   component: Sign_in
+},
+{
+  path: "/rezervacija_parkinga",
+  name: "Rezervacija_parkinga",
+  component: Rezervacija_parkinga
+},
+{
+  path: "/podaci_vozila",
+  name: "Podaci_vozila",
+  component: Podaci_vozila
+},
+{
+  path: "/podaci_rezervacije",
+  name: "Podaci_rezervacije",
+  component: Podaci_rezervacije
 },
 ];
 
