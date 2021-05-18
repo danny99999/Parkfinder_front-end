@@ -14,6 +14,7 @@ import Sign_in from "@/views/Sign_in.vue";
 import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
 import Podaci_vozila from "@/views/Podaci_vozila.vue";
 import Podaci_rezervacije from "@/views/Podaci_rezervacije.vue";
+import Homeeng from "@/views/Homeeng.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -87,6 +88,11 @@ const routes = [
   path: "/podaci_rezervacije",
   name: "Podaci_rezervacije",
   component: Podaci_rezervacije
+},
+{
+  path: "/homeeng",
+  name: "Homeeng",
+  component: Homeeng
 },
 ];
 

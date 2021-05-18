@@ -3,22 +3,34 @@
      <Navbar></Navbar> 
       <br>
       <br>
-      <br> 
-    <p>k</p>
+      <br>
+    <center>
+    <br>
+    <h2>Obavijesti stranica</h2>
+    <br>
+    <div class="zaparking">
+        <h2>Parking Karolina zatvoren.</h2>
+        <br>
+        <h4>30.05.2021</h4>
+        <h4>Parking Karolina se zatvara radi najavljenoga nevremena.</h4>
+    </div>
+    </center>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+    
+    <Footer></Footer>
     </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
+
 export default {
     name: "Obavijesti",
     components: {
-        Navbar
+        Navbar,
+        Footer
     },
 }
 </script>
@@ -27,4 +39,17 @@ export default {
 .obavijesti
 {
 }
+
+.zaparking{
+  background-color:#044ca4 !important;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  color: white;
+  width: 80%;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+} 
 </style>

@@ -30,8 +30,9 @@
                     <label for="exampleInputPassword1">Lozinka</label>
             </div>
             <br>
-
-            <br>
+            <h6>Za potrebe prototipa projekta ulaz u aplikaciju moguć je računom: </h6>
+            <p>E-mail: ime123@user.com </p>
+            <p>Lozinka: 123456 </p>
             <br>
             
           
@@ -44,6 +45,9 @@
             </b-card>
            </div>
         </div>
+        
+    <Footer></Footer>
+
 </div>
 </template>
 
@@ -52,13 +56,14 @@
 
 
 import Navsignup from '../components/Navsignup.vue';
+import Footer from '@/components/Footer.vue';
 import {firebase} from '@/firebase';
 
 export default {
     name1: 'Sign_in',
     components: {
         Navsignup,
-    
+        Footer    
     },
     
     data() {

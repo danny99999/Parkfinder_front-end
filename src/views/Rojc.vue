@@ -81,16 +81,19 @@
 
 </div>
     </center>
-</div>   
+    <Footer></Footer>
+</div>  
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: "Rojc",
     components: {
         Navbar,
+        Footer,
     },
 };
 </script>

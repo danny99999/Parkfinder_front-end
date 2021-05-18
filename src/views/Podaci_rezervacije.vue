@@ -28,26 +28,27 @@
                 <br>
                 <br>
             <b-button class="btn" href="/" type="submit" variant="danger" v-on:click="poruka('Uspješno ste rezervirali parking')">Potvrdi rezervaciju</b-button> 
-
-            
+            <br>
+            <br>
 
                 
 </div>      
 
     
 
-
+    <Footer></Footer>
 </div>   
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: "Podaci_rezervacije",
     components: {
-        Navbar
-
+        Navbar,
+        Footer
     },
     
     data() {

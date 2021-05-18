@@ -7,32 +7,31 @@
     <br>
     <br>
     <br>
-    <h1>Mapa stranica</h1>
+    <h1>Karta stranica</h1>
     <br>
     <br>
     <center>
-    <b-row class="proba">
-        <b-col>
-        <b-text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi reiciendis fuga error. Excepturi mollitia aspernatur, aliquid aut alias voluptate reprehenderit?</b-text>
-        </b-col>
-        </b-row>
+    <iframe src="https://snazzymaps.com/embed/313663" width="100%" height="600px" style="border:none;"></iframe>
     </center>    
+    
+    <Footer></Footer>
 </div>   
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: "Mapa",
     components: {
-        Navbar
+        Navbar,
+        Footer
     },
 };
 </script>
 <style>
 .Mapa {
-    background-color: turquoise;
 }
 .proba {
     color: black;

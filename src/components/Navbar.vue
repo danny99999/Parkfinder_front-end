@@ -2,7 +2,7 @@
 <div>
     <b-navbar toggleable="lg" type="dark" class="stil" fixed="top">
     <img src=@/assets/P.png id="navbarP">
-    <b-navbar-brand href="/home">Park Finder</b-navbar-brand>
+    <b-navbar-brand href="/">Park Finder</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
     
     <b-collapse id="nav-collapse" is-nav>
@@ -25,10 +25,8 @@
         <hr>
         <b-nav-item class="Item-1" href="/obavijesti" img>Obavijesti</b-nav-item>
         <b-nav-item-dropdown class="jezik" text="Jezik" right>
-          <b-dropdown-item href="#">HRV</b-dropdown-item>
-          <b-dropdown-item href="#">ENG</b-dropdown-item>
-          <b-dropdown-item href="#">ITA</b-dropdown-item>
-          <b-dropdown-item href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/1200px-Question_mark_%28black%29.svg.png">???????</b-dropdown-item>
+          <b-dropdown-item href="/">HRV</b-dropdown-item>
+          <b-dropdown-item href="/homeeng">ENG</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item class="Item-2" href="#" @click="logout()">Odjava</b-nav-item>
 

@@ -12,7 +12,7 @@
 
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-1 variant="info">Parking 1</b-button>
+        <b-button block v-b-toggle.accordion-1 variant="info">Parking Rojc</b-button>
       </b-card-header>
       <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -30,7 +30,7 @@
 
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-2 variant="info">Parking 2</b-button>
+        <b-button block v-b-toggle.accordion-2 variant="info">Parking Karolina</b-button>
       </b-card-header>
       <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -48,7 +48,7 @@
 
     <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-3 variant="info">Parking 3</b-button>
+        <b-button block v-b-toggle.accordion-3 variant="info">Parking Tržnica</b-button>
       </b-card-header>
       <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -66,7 +66,7 @@
 
         <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-4 variant="info">Parking 4</b-button>
+        <b-button block v-b-toggle.accordion-4 variant="info">Parking Dobrićeva ul.</b-button>
       </b-card-header>
       <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -84,7 +84,7 @@
 
         <b-card no-body class="mb-1">
       <b-card-header header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-5 variant="info">Parking 5</b-button>
+        <b-button block v-b-toggle.accordion-5 variant="info">Parking Bolnica</b-button>
       </b-card-header>
       <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -113,15 +113,19 @@
             <p>Ukupna cijena: <strong> {{form.total}} Kn {{form.quantity}} </strong></p>
         </div>
     </div>
+
+    <Footer></Footer>
 </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
   export default {
     components: {
       Navbar,
+      Footer
     },
     data() {
       return {

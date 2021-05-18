@@ -11,6 +11,7 @@
             <Kartica v-for="Kartica in kartice" :key="Kartica" :info="Kartica"></Kartica>
         </b-col>
     </b-container>
+    <Footer></Footer>
 </div>
 </template>
 
@@ -27,28 +28,30 @@ kartice = [
   naslov: 'Parking Karolina',
   router: '/karolina'
   },
-  {url: 'https://www.maris.hr/site_media/media/realestate/watermarked/Veruda_igralisteimmobilien_in_croatia1-4.jpg.1280x800_q92.jpg',
+  {url: 'https://www.pula.hr/site_media/media/typo3/uploads/pics/Picture_23086_01.jpg',
   naslov: 'Parking Tržnica',
   router: '/trznica'
   },
   {url: 'https://cdn.discordapp.com/attachments/465282681622757399/806587488574505000/unknown.png',
-  naslov: 'Parking Dobrićeva',
+  naslov: 'Parking Dobrićeva ul.',
   router: '/dobriceva'
   },
-  {url: 'https://storage.glasistre.hr/MediaServer/Photos/Download/196799?Format=1',
-  naslov: 'Parking Drosina',
-  router: '/drosina'
+  {url: 'https://istarski.hr/app_assets/publications/index/69736/xl_69736_pxl_261120_30956277.jpg',
+  naslov: 'Parking Bolnica',
+  router: '/bolnica'
   }
 ]
 
 import Kartica from '@/components/Kartica.vue';
 import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: "Home",
     components: {
         Kartica,
         Navbar,
+        Footer,
     },
     data: function() {
         return {

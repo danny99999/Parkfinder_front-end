@@ -54,7 +54,7 @@
             <br>
             <br>
             
-            <b-button class="btn2" href="/">Već imam račun</b-button>
+            <b-button class="btn2" href="/sign_in">Već imam račun</b-button>
             <br>
             <br>
             <br>
@@ -62,7 +62,7 @@
             </b-card>
             
            </div>
-
+        <Footer></Footer>
         </div>
 
 </template>
@@ -72,13 +72,15 @@
 import passwordMeter from "vue-simple-password-meter";
 import { firebase } from '@/firebase';
 import Navsignup from '../components/Navsignup.vue';
+import Footer from '@/components/Footer.vue';
+
 
 export default {
     name2: 'Sign_up',
     components: {
         Navsignup,
-        passwordMeter
-    
+        passwordMeter,
+        Footer    
     },
  
   data() {

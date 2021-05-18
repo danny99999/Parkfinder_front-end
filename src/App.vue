@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <div class="upperapp"> 
-    </div>
     <router-view/>
-    <Footer></Footer>
   </div>
 </template>
 
 <script>
 
-import Footer from './components/Footer.vue';
 import {firebase} from '@/firebase';
 //import router from '@/router';
 
@@ -34,8 +30,6 @@ firebase.auth().onAuthStateChanged((user) => {
 export default {
   name: "App.vue",
   components: {
-    Footer,
-    
   },
 };
 </script>
