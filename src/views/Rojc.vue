@@ -6,7 +6,7 @@
     <center>
 <div class="box">
   
-  <img src="../assets/Rojcc.jpg">
+  <img src="https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/RojcPage.jpg?alt=media&token=81745746-54a4-454b-8f14-c0c616615b9d">
 
 </div>
 <div class="zaparking">
@@ -18,8 +18,8 @@
 
 <div class="container">
 <br>
-<h3><b> Lokacija: <hr></b></h3>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11311.967852727505!2d13.8441199!3d44.8624584!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2cd5bd0b9be66d58!2sKarlo%20Rojc%20South%20Parking!5e0!3m2!1sen!2shr!4v1621085124714!5m2!1sen!2shr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<h3><b> Lokacija:</b></h3>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11311.967852727505!2d13.8441199!3d44.8624584!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2cd5bd0b9be66d58!2sKarlo%20Rojc%20South%20Parking!5e0!3m2!1sen!2shr!4v1621085124714!5m2!1sen!2shr" width="auto" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <br>
 <br>
 <b-container class="bv-example-row">
@@ -60,21 +60,14 @@
   </b-row>
   <br>
    <b-row>
-    <h4><b>Slobodna mjesta: </b></h4>
+    <h4><b>Ukupno mjesta: </b></h4>
    </b-row>
    <hr>
    <b-row>
     <p>Ukupno: 30</p>
   </b-row>
      <b-row>
-    <p>Slobodno: 17</p>
-  </b-row>
-     <b-row>
     <p>Invalidskih: 5</p>
-  </b-row>
-  
-     <b-row>
-    <p>Slob. Invalidskih: 3</p>
   </b-row>
   <br>
 </b-container>
@@ -98,24 +91,23 @@ export default {
 };
 </script>
 <style>
-.Rojc {
-}
+
 .proba {
     color: black;
     font-weight: bold;
 }
 
 .box{
+  width: 80%;
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
 }
 .box img{
   width: 80%;
+  border-radius: none;
 }
 
-.bottom,
-.right{
+.bottom.right{
   margin:1em;
   position:absolute;
 }

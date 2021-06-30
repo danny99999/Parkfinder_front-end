@@ -1,35 +1,50 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
+import { firebase } from "@/firebase";
+import router from "@/router";
+import store from "@/store";
+import { db } from "@/firebase";
 
-import {firebase} from '@/firebase';
-//import router from '@/router';
+firebase.auth().onAuthStateChanged(function(user) {
+  const currentRoute = router.currentRoute;
 
-
-firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log("***", user.email);
+    // User is signed in.
+    store.currentUser = user.email;
+    //console.log(user);
+
+    db.collection("korisnici")
+      .doc(user.email)
+      .get()
+      .then((doc) => {
+        if (doc.exists) {
+          //console.log("Document data:", doc.data());
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      });
   } else {
-    console.log('*** No user');
+    // No user is signed in.
+    store.currentUser = null;
 
-    //if (router.name !== "Sign_in",  router.name !=="Sign_up") {
-      //router.push({name: 'Sign_in'});
-
-
-      
-    //}
-    
+    if (currentRoute.meta.needsUser) {
+      router.push({ name: 'Sign_in'})
+    }
   }
 });
 
-
 export default {
   name: "App.vue",
-  components: {
+  data() {
+    return {
+      store,
+    };
   },
 };
 </script>
@@ -41,10 +56,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
-}
-
-.upperapp
-{
-  background-color: #044ca4;
 }
 </style>

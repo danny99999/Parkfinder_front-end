@@ -6,11 +6,11 @@
     <center>
 <div class="box">
   
-  <img src="../assets/Dobriceva.jpg">
+  <img src="https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/DobricevaPage.jpg?alt=media&token=06d0bedb-12ef-4a03-9089-3ff07f0d2dde">
 
 </div>
 <div class="zaparking">
-    <h2>Parking Dobriceva ulica</h2>
+    <h2>Parking Dobrićeva ulica</h2>
     <br>
     <h4>Dobricheva ul., 52100, Pula</h4>
 </div>
@@ -19,7 +19,7 @@
 <div class="container">
 <br>
 <h3><b> Lokacija: <hr></b></h3>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11310.461756142655!2d13.842427289288793!3d44.87012306557292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477cd2dffc67f92f%3A0x4973a4018e8c831!2sParking%20Dobricheva%20ulica!5e0!3m2!1sen!2shr!4v1621126650712!5m2!1sen!2shr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11310.461756142655!2d13.842427289288793!3d44.87012306557292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477cd2dffc67f92f%3A0x4973a4018e8c831!2sParking%20Dobricheva%20ulica!5e0!3m2!1sen!2shr!4v1621126650712!5m2!1sen!2shr" width="auto" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 <br>
 <br>
 <b-container class="bv-example-row">
@@ -60,21 +60,14 @@
   </b-row>
   <br>
    <b-row>
-    <h4><b>Slobodna mjesta: </b></h4>
+    <h4><b>Ukupno mjesta: </b></h4>
    </b-row>
    <hr>
    <b-row>
     <p>Ukupno: 25</p>
   </b-row>
      <b-row>
-    <p>Slobodno: 10</p>
-  </b-row>
-     <b-row>
     <p>Invalidskih: 5</p>
-  </b-row>
-  
-     <b-row>
-    <p>Slob. Invalidskih: 4</p>
   </b-row>
   <br>
 </b-container>
@@ -100,9 +93,6 @@ export default {
 };
 </script>
 <style>
-.Titov {
-    background-color: orange;
-}
 .proba {
     color: black;
     font-weight: bold;
@@ -114,7 +104,7 @@ export default {
   border-radius: 10px;
 }
 .box img{
-  width: 80%;
+  width: 100%;
 }
 
 .bottom,
@@ -141,7 +131,7 @@ export default {
   overflow: hidden;
   border: 1px solid black;
   color: white;
-  width: 80%;
+  width: 100%;
   padding-top: 15px;
   padding-right: 15px;
   padding-bottom: 15px;

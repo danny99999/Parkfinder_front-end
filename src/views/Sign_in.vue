@@ -3,6 +3,7 @@
         <div class="form_group1">
            <Navsignup></Navsignup>
            <div class="form_group2">
+            <center>   
             <b-card id="sign">
             <h2>Prijava</h2>
             <br>
@@ -20,7 +21,7 @@
             </div>
             <br>
            <br>
-            <div class="form-group4">
+            <div class="form-group3">
                 <input 
                     type="password"
                     v-model="password"
@@ -30,11 +31,6 @@
                     <label for="exampleInputPassword1">Lozinka</label>
             </div>
             <br>
-            <h6>Za potrebe prototipa projekta ulaz u aplikaciju moguć je računom: </h6>
-            <p>E-mail: ime123@user.com </p>
-            <p>Lozinka: 123456 </p>
-            <br>
-            
           
 
             <b-button class="btn" type="submit" variant="danger" @click="login">Prijava</b-button>
@@ -43,6 +39,7 @@
             <br>
             <b-button href="/sign_up">Nemate račun? Registrirajte se.</b-button>
             </b-card>
+            </center>
            </div>
         </div>
         
@@ -70,6 +67,7 @@ export default {
         return {
             username:"",
             password:""
+            
         }
     },
     methods: {
@@ -86,14 +84,21 @@ export default {
                 var errorCode = e.code;
                 var errorMessage = e.message;
                 if (errorCode === 'auth/wrong-password') {
-                    alert('Kriva lozinka.');
+                    alert('Upišite ispravnu lozinku.');
                 } else {
                  alert(errorMessage);
                 }
                 console.log(e);
+                
             });
-        },
-    },
+        }
+       
+        
+         
+
+      
+    }
+    
     
 };
 </script>
@@ -105,12 +110,16 @@ div.form_group1 {
     border: none;
     background-color:rgb(63, 60, 60);
     height: 666px;
+    align-items: center;
+   
+    
     
 }
 
 .form_group2 {
-   margin-left: 30%;
-   margin-right: 30%;
+   
+   margin: 0%;
+
 
 }
 
@@ -119,28 +128,20 @@ div.form_group1 {
     color: aliceblue;
     height: 600px;
     border-radius: 10px;
+    align-self: center;
+   
 }
 
 div.card {
    
     border-radius: 10px;
-    max-width:100%;
+    width: auto;
+    
     
 }
 
-.signin {
-    color: aliceblue;
-}
-
-.form-group4 {
-    margin-left: 12%;
-    margin-right: 12%;
-}
 .form-group3 {
-    margin-left: 12%;
-    margin-right: 12%;
+   margin-left: 20%;
+   margin-right: 20%;
 }
-
-
- 
 </style>

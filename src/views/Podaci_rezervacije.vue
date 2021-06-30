@@ -7,35 +7,28 @@
     <br>
     <h2>Upisite podatke o rezervaciji parkinga</h2>
 <div class="form-group6">
-    <label class="Datum">Upisite datum rezervacije</label>
-                <input 
-                    class="form-control" 
-                    placeholder="Datum">
-                
-            
+    <br>
+    <br>
+    <label for="example-datepicker">Odaberite datum</label>
+    <b-form-datepicker v-model="value" :min="min" :max="max" locale="en"></b-form-datepicker>
            <br>
            <br>
             
                 <label class= "br">Vrijeme boravka na parkingu</label>    
                 <b-form-select v-model="selected" :options="options">--Odaberite jednu od opcija--</b-form-select>    
-
             <br>
            <br>
            <br>
-            
                 <label class= "br">Odaberite parking</label>    
                 <b-form-select v-model="selected2" :options="options2">--Odaberite jednu od opcija--</b-form-select>
                 <br>
                 <br>
-            <b-button class="btn" href="/" type="submit" variant="danger" v-on:click="poruka('Uspješno ste rezervirali parking')">Potvrdi rezervaciju</b-button> 
+            <b-button class="btn" type="button" variant="danger" @click="posalji">Potvrdi rezervaciju</b-button> 
             <br>
             <br>
 
                 
-</div>      
-
-    
-
+        </div>      
     <Footer></Footer>
 </div>   
 </template>
@@ -50,8 +43,18 @@ export default {
         Navbar,
         Footer
     },
-    
+
     data() {
+      const now = new Date()
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+      // Min datum -> Danasnji datum
+      const minDate = new Date(today)
+      minDate.setMonth(minDate.getMonth())
+      minDate.setDate(minDate.getDate())
+      // Min datum -> Danasnji dan u mjesecu ali mjesec dana unaprijed
+      const maxDate = new Date(today)
+      maxDate.setMonth(maxDate.getMonth() + 1)
+      maxDate.setDate(maxDate.getDate())
       return {
         selected: null,
         options: [
@@ -70,15 +73,30 @@ export default {
           { value: '3', text: 'Parking Bolnica ' },
           { value: '4', text: 'Parking Rojc' },
           { value: '5', text: 'Parking Trznica' }
-        ]
-      }
-    },
-methods: {
-        poruka: function (message) {
-            alert(message)
-        }
+        ],
+        value: '',
+        min: minDate,
+        max: maxDate
+        }},
+     methods: {
+        posalji() {
+            if (this.value === '' || this.value === null || this.value === 0){
+                alert("Unesite datum rezervacije!");
+            }
 
-}
+            else if (this.selected === '' || this.selected === null || this.selected.value === 0){
+                alert("Unesite vrijeme boravka!");
+            }
+
+            else if (this.selected2 === '' || this.selected2 === null || this.selected2.value === 0){
+                alert("Odaberite parking!");
+            }
+            else {
+                alert("Uspjesna rezervacija parkinga!");
+                this.$router.push({name: "Home"});
+                }
+            },
+            }
 };
 </script>
 

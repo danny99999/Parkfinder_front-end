@@ -1,70 +1,79 @@
 <template>
-
-<div class="nav1">
-    
+  <div class="nav1">
     <Navbar></Navbar>
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
     <b-container class="bv-example-row" fluid="md">
-        <b-col>
-            <Kartica v-for="Kartica in kartice" :key="Kartica" :info="Kartica"></Kartica>
-        </b-col>
+      <b-col>
+        <Kartica
+          v-for="Kartica in kartice"
+          :key="Kartica.id"
+          :info="Kartica"
+        ></Kartica>
+      </b-col>
     </b-container>
     <Footer></Footer>
-</div>
+  </div>
 </template>
 
 <script>
-let kartice = []
+let kartice = [];
 
 kartice = [
-  { 
-  url: 'https://storage.glasistre.hr/MediaServer/Photos/Download/81904?Format=1',
-  naslov: 'Parking Rojc',
-  router: '/rojc'
+  {
+    url:
+      "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/rojc.jpg?alt=media&token=0b5a4b6a-efae-40ae-a115-a83a676f8aef",
+    naslov: "Parking Rojc",
+    router: "/rojc",
   },
-  {url: 'https://storage.glasistre.hr/MediaServer/Photos/Download/90513?Format=1',
-  naslov: 'Parking Karolina',
-  router: '/karolina'
+  {
+    url:
+      "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/karolina.jpg?alt=media&token=64aad6ca-9164-4de5-9d9f-aaee9b813819",
+    naslov: "Parking Karolina",
+    router: "/karolina",
   },
-  {url: 'https://www.pula.hr/site_media/media/typo3/uploads/pics/Picture_23086_01.jpg',
-  naslov: 'Parking Tržnica',
-  router: '/trznica'
+  {
+    url:
+      "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/Trznica.jpg?alt=media&token=8053a940-6b62-4a0c-954e-3202457a7aae",
+    naslov: "Parking Tržnica",
+    router: "/trznica",
   },
-  {url: 'https://cdn.discordapp.com/attachments/465282681622757399/806587488574505000/unknown.png',
-  naslov: 'Parking Dobrićeva ul.',
-  router: '/dobriceva'
+  {
+    url:
+      "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/dobriceva.png?alt=media&token=a22933a3-fe0e-4738-9b12-26ab58e57faa",
+    naslov: "Parking Dobrićeva ul.",
+    router: "/dobriceva",
   },
-  {url: 'https://istarski.hr/app_assets/publications/index/69736/xl_69736_pxl_261120_30956277.jpg',
-  naslov: 'Parking Bolnica',
-  router: '/bolnica'
-  }
-]
+  {
+    url:
+      "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/bolnica.jpg?alt=media&token=bbfa7685-8384-4f38-882f-4ac718c02987",
+    naslov: "Parking Bolnica",
+    router: "/bolnica",
+  },
+];
 
-import Kartica from '@/components/Kartica.vue';
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
+import Kartica from "@/components/Kartica.vue";
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
-    name: "Home",
-    components: {
-        Kartica,
-        Navbar,
-        Footer,
-    },
-    data: function() {
-        return {
-        kartice,
-        };
-    },
+  name: "Home",
+  components: {
+    Kartica,
+    Navbar,
+    Footer,
+  },
+  data: function() {
+    return {
+      kartice,
+    };
+  },
 };
 </script>
 
 <style>
-
 .nav1 {
-    max-width: 100%;
-    
+  max-width: 100%;
 }
 </style>

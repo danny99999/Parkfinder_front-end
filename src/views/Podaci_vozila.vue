@@ -10,6 +10,7 @@
  
                 <label class= "prezime">Marka i model</label>
                 <input 
+                    v-model="markaimodel"
                     class="form-control" 
                     placeholder="Marka i model" >
             <br>
@@ -17,17 +18,19 @@
             
                 <label class= "br">Registracija</label>
                 <input 
+                    v-model="registracija"
                     class="form-control" 
                     placeholder="Registracija" >
             <br>
             <br>
             <label class= "br">Boja vozila</label>
                 <input 
+                    v-model="bojavozila"
                     class="form-control" 
-                    placeholder="Boja" >
+                    placeholder="Boja">
                     <br>
 
-            <b-button class="btn" href="/podaci_rezervacije" type="submit" variant="danger">Dalje</b-button>        
+            <b-button class="btn" type="button" variant="danger" @click="saljipodatkevozila">Dalje</b-button>        
                 
 </div>      
 
@@ -48,6 +51,31 @@ export default {
         Navbar,
         Footer
     },
+    data() {
+        return {
+            markaimodel:'',
+            registracija:'',
+            bojavozila: '',
+        };
+        },
+     methods: {
+        saljipodatkevozila() {
+            if (this.markaimodel === '' || this.markaimodel === null || this.markaimodel.value === 0){
+                alert("Unesite Vašu marku i model vozila!");
+            }
+
+            else if (this.registracija === '' || this.registracija === null || this.registracija.value === 0){
+                alert("Unesite Vašu registraciju!");
+            }
+
+            else if (this.bojavozila === '' || this.bojavozila === null || this.bojavozila.value === 0){
+                alert("Unesite Vašu boju vozila!");
+            }
+            else {
+                this.$router.push({name: "Podaci_rezervacije"});
+                }
+            },
+            }
 };
 </script>
 

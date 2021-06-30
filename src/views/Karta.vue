@@ -1,40 +1,35 @@
 <template>
-<div class="Mapa">
+<div>
     <Navbar></Navbar>
     <br>
-    
     <br>
     <br>
     <br>
-    <br>
-    <h1>Karta stranica</h1>
-    <br>
+    <h2><b>Karta</b></h2>
     <br>
     <center>
-    <iframe src="https://snazzymaps.com/embed/313663" width="100%" height="600px" style="border:none;"></iframe>
-    </center>    
-    
+    <Mapa></Mapa>
+    <br>
     <Footer></Footer>
-</div>   
+    </center>  
+</div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
+import Mapa from '@/components/Mapa.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
-    name: "Mapa",
+    name: "Karta",
     components: {
         Navbar,
-        Footer
+        Mapa,
+        Footer     
     },
 };
 </script>
+
 <style>
-.Mapa {
-}
-.proba {
-    color: black;
-    font-weight: bold;
-}
+
 </style>

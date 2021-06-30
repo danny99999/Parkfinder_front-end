@@ -2,7 +2,7 @@
 <div>
     <b-navbar toggleable="lg" type="dark" class="stil">
     <img src=@/assets/P.png id="navbarP">
-    <b-navbar-brand href="/sign_in">Park Finder</b-navbar-brand>
+    <b-navbar-brand href="/">Park Finder</b-navbar-brand>
   
     
 
@@ -11,10 +11,6 @@
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto">
         <hr>
-        <b-nav-item-dropdown class="jezik" text="Jezik" right>
-          <b-dropdown-item href="#">HRV</b-dropdown-item>
-          <b-dropdown-item href="#">ENG</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

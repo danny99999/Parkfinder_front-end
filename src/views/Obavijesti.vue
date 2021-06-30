@@ -6,13 +6,20 @@
       <br>
     <center>
     <br>
-    <h2>Obavijesti stranica</h2>
+    <h2><b>Obavijesti</b></h2>
     <br>
     <div class="zaparking">
         <h2>Parking Karolina zatvoren.</h2>
         <br>
-        <h4>30.05.2021</h4>
+        <h4>16.06.2021.</h4>
         <h4>Parking Karolina se zatvara radi najavljenoga nevremena.</h4>
+    </div>
+    <br>
+    <div class="zaparking">
+        <h2>Ljetne cijene</h2>
+        <br>
+        <h4>01.06.2021.</h4>
+        <h4>Od 01.06. do 01.09. vrijede cijene za ljetno radno vrijeme parkinga.</h4>
     </div>
     </center>
     <br>
