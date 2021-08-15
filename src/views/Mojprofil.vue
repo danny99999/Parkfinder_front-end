@@ -7,7 +7,7 @@
       <br />
       <br />
       <center>
-        <b><h2>Informacije o profilu</h2></b>
+        <h2><b>Informacije o profilu</b></h2>
         <label class="mt-4">E-Mail</label>
         <p class="form-control" id="frm-ctrl">{{ Korisnik.username }}</p>
         <label class="mt-4">Ime</label>
@@ -18,7 +18,8 @@
         <p class="form-control" id="frm-ctrl">{{ Korisnik.datum_registracije }}</p>
 
         <br />
-        <br />
+        <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>        
+        <br>   
       </center>
     </b-card>
     <Footer></Footer>
@@ -67,6 +68,10 @@ export default {
           }
         });
     },
+    mojerezervacije() {
+      console.log("Odabrali smo moje rezervacije u moj profil");
+      this.$router.push({name: "Rezervacije"});
+    },
   },
 };
 </script>
@@ -75,7 +80,7 @@ export default {
   color: black;
 }
 div.card {
-  background-color: #ffffff;
+  background-color: transparent;
   color: black;
   border-radius: 10px;
   max-width: 1000%;

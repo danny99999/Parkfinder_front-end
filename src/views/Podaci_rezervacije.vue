@@ -1,26 +1,25 @@
 <template>
-<div class="Podaci_vozila">
+<div class="Podaci_rezervacije">
     <Navbar></Navbar>
     <br>
     <br>
     <br>
     <br>
-    <h2>Upisite podatke o rezervaciji parkinga</h2>
-<div class="form-group6">
-    <br>
+    <h2><b>Upišite podatke o rezervaciji parkinga</b></h2>
+    <div class="form-group6">
     <br>
     <label for="example-datepicker">Odaberite datum</label>
-    <b-form-datepicker v-model="value" :min="min" :max="max" locale="en"></b-form-datepicker>
+    <b-form-datepicker v-model="value" :min="min" :max="max" locale="hr" class="form-kontrola"></b-form-datepicker>
            <br>
            <br>
             
                 <label class= "br">Vrijeme boravka na parkingu</label>    
-                <b-form-select v-model="selected" :options="options">--Odaberite jednu od opcija--</b-form-select>    
+                <b-form-select v-model="selected" :options="options" class="form-kontrola">--Odaberite jednu od opcija--</b-form-select>    
             <br>
            <br>
            <br>
                 <label class= "br">Odaberite parking</label>    
-                <b-form-select v-model="selected2" :options="options2">--Odaberite jednu od opcija--</b-form-select>
+                <b-form-select v-model="selected2" :options="options2" class="form-kontrola">--Odaberite jednu od opcija--</b-form-select>
                 <br>
                 <br>
             <b-button class="btn" type="button" variant="danger" @click="posalji">Potvrdi rezervaciju</b-button> 
@@ -92,7 +91,7 @@ export default {
                 alert("Odaberite parking!");
             }
             else {
-                alert("Uspjesna rezervacija parkinga!");
+                alert("Uspješna rezervacija parkinga!");
                 this.$router.push({name: "Home"});
                 }
             },
@@ -100,10 +99,16 @@ export default {
 };
 </script>
 
-<style>
-.Podaci_vozila {
-    background-color: blanchedalmond;
+<style scoped>
+.Podaci_rezervacije {
+    background-color: transparent;
+    color: black;
 }
+
+.form-kontrola{
+    border: 2px solid black !important;
+}
+
 
 .form-group6{
     padding-left: 20%;

@@ -15,6 +15,7 @@ import Moj_Profil from "@/views/Mojprofil.vue";
 import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
 import Podaci_vozila from "@/views/Podaci_vozila.vue";
 import Podaci_rezervacije from "@/views/Podaci_rezervacije.vue";
+import Rezervacije from "@/views/Rezervacije.vue";
 import { firebase } from "@/firebase";
 Vue.use(VueRouter);
 
@@ -109,6 +110,11 @@ const routes = [
     name: "Moj_profil",
     component: Moj_Profil,
     meta: { requiresAuth: true },
+  },
+  {
+    path: "/rezervacije",
+    name: "Rezervacije",
+    component: Rezervacije,
   },
 ];
 

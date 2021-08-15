@@ -5,18 +5,16 @@
     <br>
     <br>
     <br>
-    <h2>Upisite svoje osobne podatke</h2>
+    <h2><b>Upišite svoje osobne podatke</b></h2>
 <div class="form-group6">
+    <br>
     <label class="Ime">Ime</label>
                 <input 
                     v-model="Ime"
                     class="form-control" 
                     placeholder="Ime">
-                
-            
            <br>
            <br>
-            
                 <label class= "prezime">Prezime</label>
                 <input
                     v-model="Prezime"
@@ -24,15 +22,15 @@
                     placeholder="Prezime" >
             <br>
            <br>
-            
                 <label class= "br">Broj mobitela</label>
                 <input
                     v-model="Phonenumber"
                     class="form-control" 
                     placeholder="Br. telefona" >
             <br>
-            <b-button class="btn" type="button" variant="danger" @click="saljipodatke">Dalje</b-button>        
-            <br>    
+            <b-button class="btnn" type="button" variant="danger" @click="saljipodatke">Dalje</b-button>        
+            <br/>    
+            <br/>
 </div>      
     <Footer></Footer>
 
@@ -79,14 +77,23 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .Rezervacija_parkinga {
-    background-color: blanchedalmond;
+    background-color: transparent;
+    color: black;
 }
 
 .form-group6{
     padding-left: 20%;
     padding-right: 20%;
+}
+
+.btnn{
+    width: 100px;
+}
+
+.form-control{
+    border: 2px solid black !important;
 }
 
 </style>

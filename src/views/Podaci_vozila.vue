@@ -5,9 +5,9 @@
     <br>
     <br>
     <br>
-    <h2>Upisite podatke svog vozila</h2>
-<div class="form-group6">
- 
+    <h2><b>Upišite podatke svog vozila</b></h2>
+    <div class="form-group6">
+            <br> 
                 <label class= "prezime">Marka i model</label>
                 <input 
                     v-model="markaimodel"
@@ -15,7 +15,6 @@
                     placeholder="Marka i model" >
             <br>
            <br>
-            
                 <label class= "br">Registracija</label>
                 <input 
                     v-model="registracija"
@@ -29,9 +28,9 @@
                     class="form-control" 
                     placeholder="Boja">
                     <br>
-
-            <b-button class="btn" type="button" variant="danger" @click="saljipodatkevozila">Dalje</b-button>        
-                
+            <b-button class="btnn" type="button" variant="danger" @click="saljipodatkevozila">Dalje</b-button>        
+            <br>    
+            <br>   
 </div>      
 
     
@@ -79,14 +78,24 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .Podaci_vozila {
-    background-color: blanchedalmond;
+    background-color: transparent !important;
+    color: black;
 }
 
 .form-group6{
     padding-left: 20%;
     padding-right: 20%;
+}
+
+.form-control{
+    border: 2px solid black !important;
+}
+
+
+.btnn{
+    width: 100px;
 }
 
 </style>
