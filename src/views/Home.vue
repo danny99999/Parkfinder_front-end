@@ -56,6 +56,7 @@ kartice = [
 import Kartica from "@/components/Kartica.vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import store from "@/store";
 
 export default {
   name: "Home",
@@ -67,8 +68,28 @@ export default {
   data: function() {
     return {
       kartice,
+      store
     };
   },
+  mounted () {
+    this.kartice= []
+  fetch("http://localhost:3200/osobni_podaci_memory")
+  .then(r=> {
+    return r.json()
+  })
+  .then(data => {
+    console.log("Podaci s backenda", data)
+
+   let data2= data.map(element=> {
+      return {
+        naslov: element.ime_korisnika,
+
+      }
+    })
+    this.kartice= data2
+
+  })
+}
 };
 </script>
 

@@ -46,6 +46,7 @@ export default {
       store,
     };
   },
+
 };
 </script>
 

@@ -10,21 +10,21 @@
     <br>
     <label class="Ime">Ime</label>
                 <input 
-                    v-model="Ime"
+                    v-model="podaci.Ime"
                     class="form-control" 
                     placeholder="Ime">
            <br>
            <br>
                 <label class= "prezime">Prezime</label>
                 <input
-                    v-model="Prezime"
+                    v-model="podaci.Prezime"
                     class="form-control" 
                     placeholder="Prezime" >
             <br>
            <br>
                 <label class= "br">Broj mobitela</label>
                 <input
-                    v-model="Phonenumber"
+                    v-model="podaci.Phonenumber"
                     class="form-control" 
                     placeholder="Br. telefona" >
             <br>
@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -50,10 +51,12 @@ export default {
     },
       data() {
         return {
+        podaci: {
             Ime:'',
             Prezime:'',
             Phonenumber: '',
-        };
+        }
+        }
         },
      methods: {
         saljipodatke() {
@@ -73,8 +76,30 @@ export default {
                 }
 
             },
-            }
+},
+
+ mounted () {
+    this.podaci= []
+  fetch("http://localhost:3200/osobni_podaci_memory")
+  .then(r=> {
+    return r.json()
+  })
+  .then(data => {
+    console.log("Podaci s backenda", data)
+
+   let data2= data.map(element=> {
+      return {
+        Ime: element.ime_korisnika,
+        Prezime: element.prezime_korisnika,
+        Phonenumber: element.br_telefona
+      }
+    })
+    this.podaci= data2
+
+  })
+}
 };
+ 
 </script>
 
 <style scoped>
