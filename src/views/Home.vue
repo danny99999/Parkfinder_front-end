@@ -20,7 +20,7 @@
 <script>
 let kartice = [];
 
-kartice = [
+/*kartice = [
   {
     url:
       "https://firebasestorage.googleapis.com/v0/b/parkfinder-60514.appspot.com/o/rojc.jpg?alt=media&token=0b5a4b6a-efae-40ae-a115-a83a676f8aef",
@@ -51,7 +51,7 @@ kartice = [
     naslov: "Parking Bolnica",
     router: "/bolnica",
   },
-];
+];*/
 
 import Kartica from "@/components/Kartica.vue";
 import Navbar from "@/components/Navbar.vue";
@@ -63,7 +63,7 @@ export default {
   components: {
     Kartica,
     Navbar,
-    Footer,
+    Footer
   },
   data: function() {
     return {
@@ -73,7 +73,7 @@ export default {
   },
   mounted () {
     this.kartice= []
-  fetch("http://localhost:3200/osobni_podaci_memory")
+  fetch("http://localhost:3200/kartice")
   .then(r=> {
     return r.json()
   })
@@ -82,7 +82,9 @@ export default {
 
    let data2= data.map(element=> {
       return {
-        naslov: element.ime_korisnika,
+        url: element.url_b,
+        naslov: element.naslov_b,
+        router: element.router_b
 
       }
     })
