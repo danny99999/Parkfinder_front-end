@@ -16,8 +16,12 @@ import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
 import Podaci_vozila from "@/views/Podaci_vozila.vue";
 import Podaci_rezervacije from "@/views/Podaci_rezervacije.vue";
 import Rezervacije from "@/views/Rezervacije.vue";
+import Riva from "@/views/Riva.vue";
+import Verudela from "@/views/Verudela.vue";
+import Autobusna from "@/views/Autobusna.vue";
 import { firebase } from "@/firebase";
 Vue.use(VueRouter);
+
 
 const routes = [
   {
@@ -115,6 +119,21 @@ const routes = [
     path: "/rezervacije",
     name: "Rezervacije",
     component: Rezervacije,
+  },
+  {
+    path: "/riva",
+    name: "Riva",
+    component: Riva,
+  },
+  {
+    path: "/verudela",
+    name: "Verudela",
+    component: Verudela,
+  },
+  {
+    path: "/autobusna",
+    name: "Autobusna",
+    component: Autobusna,
   },
 ];
 

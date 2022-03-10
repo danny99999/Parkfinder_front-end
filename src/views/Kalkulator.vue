@@ -134,7 +134,7 @@ import Footer from '@/components/Footer.vue';
 var dnevna = '';
 
 var GivenDate = '2021-06-01';
-var GivenDate2 = '2021-09-01';
+var GivenDate2 = '2024-09-01';
 var CurrentDate = new Date();
 GivenDate = new Date(GivenDate);
 GivenDate2 = new Date(GivenDate2);

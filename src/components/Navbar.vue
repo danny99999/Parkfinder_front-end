@@ -26,7 +26,8 @@
       
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto" id="profil">
-        <b-nav-item class="Item-1" href="/obavijesti" img>Obavijesti</b-nav-item>
+        <b-nav-item class="Item-1"> <b-form-input v-model="search" placeholder="Pretraži parking..."></b-form-input></b-nav-item>
+        <b-nav-item class="Item-1" href="/obavijesti">Obavijesti</b-nav-item>
         <b-nav-item-dropdown text="Profil" id="profil1">
           <b-dropdown-item href="/Moj_Profil">Moj Profil</b-dropdown-item>
           <b-dropdown-item href="#" @click="logout()">Odjava</b-dropdown-item>
