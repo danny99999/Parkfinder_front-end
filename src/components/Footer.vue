@@ -20,7 +20,7 @@ Naša aplikacija bi bila komplementarna tradicionalnim sustavima za plaćanje pa
         <hr>
       </div>
       <div class="container">
-            <center> <p>Copyright &copy; Park Finder 2021. Sva prava pridržana. </p> </center>
+            <center> <p>Copyright &copy; Park Finder 2022. Sva prava pridržana. </p> </center>
         </div>
 </footer>
 </template>

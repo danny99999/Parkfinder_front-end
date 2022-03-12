@@ -9,17 +9,24 @@
     <h2><b>Obavijesti</b></h2>
     <br>
     <div class="zaparking">
-        <h2>Parking Karolina zatvoren.</h2>
+        <h2>Zimske cijene</h2>
         <br>
-        <h4>16.06.2021.</h4>
-        <h4>Parking Karolina se zatvara radi najavljenoga nevremena.</h4>
+        <h4>21.12.2021.</h4>
+        <h4>Od 21.12.2021. do 31.05.2022. vrijede cijene za zimsko radno vrijeme parkinga.</h4>
     </div>
     <br>
     <div class="zaparking">
-        <h2>Ljetne cijene</h2>
+        <h2>Parking Riva zatvoren.</h2>
         <br>
-        <h4>01.06.2021.</h4>
-        <h4>Od 01.06. do 01.09. vrijede cijene za ljetno radno vrijeme parkinga.</h4>
+        <h4>09.01.2022.</h4>
+        <h4>Parking Riva zatvoren radi poplave.</h4>
+    </div>
+    <br>
+    <div class="zaparking">
+        <h2>Novi parking</h2>
+        <br>
+        <h4>18.02.2022</h4>
+        <h4>Uskoro se otvara novi parking u gradu, lokacija i cijene također uskoro.</h4>
     </div>
     </center>
     <br>

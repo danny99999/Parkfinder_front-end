@@ -15,7 +15,7 @@ export const changeRoute = new Vue();
 Vue.use(router);
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyBYqD66rArcPkXO1Cw4_tQmuvJDpUMrQ0s",
+    key: "AIzaSyAVkHSiPtvwq3FwRXI2Rtjjl5iTP1Om7aw",
     libraries: "places",
   },
 });

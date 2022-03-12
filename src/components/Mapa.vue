@@ -43,6 +43,9 @@ const karolina = { lat: 44.87295713977241, lng: 13.84845695338057 };
 const bolnica = { lat: 44.86615748628019, lng: 13.859112325863487 };
 const trznica = { lat: 44.866989166250576, lng: 13.8506079377271 };
 const dobriceva = { lat: 44.870609744174544, lng: 13.849421135612475 };
+const riva = { lat: 44.87765721803, lng: 13.850219642932242 };
+const verudela = { lat: 44.83890634962811, lng: 13.834628665459638 };
+const autobusna = {lat: 44.87676041700287, lng: 13.856008516763042};
 
 export default {
   name: "Mapa",
@@ -96,6 +99,21 @@ export default {
           position: dobriceva,
           label: "Dobriceva",
           route: "/dobriceva",
+        },
+        {
+          position: riva,
+          label: "Riva",
+          route: "/riva",
+        },
+        {
+          position: verudela,
+          label: "Verudela",
+          route: "/verudela",
+        },
+        {
+          position: autobusna,
+          label: "A.Kolodvor",
+          route: "/autobusna",
         },
       ];
       // console.log(this.markers);

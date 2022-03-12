@@ -16,6 +16,9 @@
           <b-dropdown-item href="/trznica">Tržnica</b-dropdown-item>
           <b-dropdown-item href="/dobriceva">Dobrićeva</b-dropdown-item>
           <b-dropdown-item href="/bolnica">Bolnica</b-dropdown-item>
+          <b-dropdown-item href="/riva">Riva</b-dropdown-item>
+          <b-dropdown-item href="/verudela">Verudela</b-dropdown-item>
+          <b-dropdown-item href="/autobusna">A.Kolodvor</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item href="/kalkulator">Kalkulator</b-nav-item>
         <b-nav-item href="/Rezervacija_parkinga">Rezervacija Parkinga</b-nav-item>
@@ -26,7 +29,8 @@
       
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto" id="profil">
-        <b-nav-item class="Item-1"> <b-form-input v-model="search" placeholder="Pretraži parking..."></b-form-input></b-nav-item>
+        <b-form-input class="mr-sm-2" placeholder="Pretraži parking..."></b-form-input>
+        <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">Traži</b-button>
         <b-nav-item class="Item-1" href="/obavijesti">Obavijesti</b-nav-item>
         <b-nav-item-dropdown text="Profil" id="profil1">
           <b-dropdown-item href="/Moj_Profil">Moj Profil</b-dropdown-item>
@@ -112,7 +116,17 @@ hr {
 }
 
 #profil1{
-  
   padding-left: 5%;
 }
+
+.btn-outline-success{
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-success:hover {
+  background-color: white;
+  color: black;
+}
+
 </style>

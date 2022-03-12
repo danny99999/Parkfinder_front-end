@@ -11,8 +11,8 @@
   <center>
     <div class="top">
       <h4 style="padding-top:10px">Odaberite jedan od parkinga</h4>
-      <p>*Napomena: zadržavanje više od 5 sati na određenom parkingu smatra se dnevnom kartom čija je cijena ista za svaki parking</p>
-      <p style="padding:10px">Ljetna dnevna karta: <b>50Kn</b> <br> Zimska dnevna karta: <b>40Kn</b> </p>
+      <p>*Napomena: zadržavanje više od 5 sati na određenom parkingu smatra se dnevnom kartom čija je cijena ista za svaki parking osim za parking kod Autobusnog kolodvora koji je besplatan</p>
+      <p style="padding:10px">Ljetna dnevna karta: <b>60Kn</b> <br> Zimska dnevna karta: <b>40Kn</b> </p>
     </div>
     <br>
   </center>
@@ -24,7 +24,7 @@
       </b-card-header>
       <b-collapse id="accordion-1" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-         <b-card-text>Cijena: {{form.rojc}} Kn/h  <br> Radno vrijeme: <br> Pon-Pet: 08:00 - 21:00 <br> Sub: 10:00-21:00 <br> Ned: 11:00-21:00 </b-card-text>
+         <b-card-text>Cijena: {{form.rojc}} Kn/h  <br> Radno vrijeme: <br> {{form.rojcvrijeme}} </b-card-text>
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected" :options="options">
             <template #first>
@@ -42,7 +42,7 @@
       </b-card-header>
       <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-        <b-card-text>Cijena: {{form.karolina}} Kn/h  <br> Radno vrijeme: <br> Pon-Pet: 09:00 - 21:00 <br> Sub: 08:00-22:00 <br> Ned: 10:00-22:00 </b-card-text>
+        <b-card-text>Cijena: {{form.karolina}} Kn/h  <br> Radno vrijeme: <br> {{form.karolinavrijeme}} </b-card-text>
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected2" :options="options2">
             <template #first>
@@ -60,7 +60,7 @@
       </b-card-header>
       <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-         <b-card-text>Cijena: {{form.trznica}} Kn/h  <br> Radno vrijeme: <br> Pon-Pet: 09:00 - 21:00 <br> Sub: 10:00-21:00 <br> Ned: 10:00-20:00 </b-card-text>
+         <b-card-text>Cijena: {{form.trznica}} Kn/h  <br> Radno vrijeme: <br> {{form.trznicavrijeme}} </b-card-text>
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected3" :options="options3">
             <template #first>
@@ -78,7 +78,7 @@
       </b-card-header>
       <b-collapse id="accordion-4" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-         <b-card-text>Cijena: {{form.dobriceva}} Kn/h  <br> Radno vrijeme: <br> Pon-Pet: 09:00 - 20:00 <br> Sub: 08:00-20:00 <br> Ned: 10:00-20:00 </b-card-text>
+         <b-card-text>Cijena: {{form.dobriceva}} Kn/h  <br> Radno vrijeme: <br> {{form.dobricevavrijeme}} </b-card-text>
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected4" :options="options4">
             <template #first>
@@ -96,7 +96,7 @@
       </b-card-header>
       <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
         <b-card-body>
-          <b-card-text>Cijena: {{form.bolnica}} Kn/h  <br> Radno vrijeme: <br> Pon-Pet: 08:00 - 20:00 <br> Sub: 09:00-21:00 <br> Ned: 11:00-21:00 </b-card-text>
+          <b-card-text>Cijena: {{form.bolnica}} Kn/h  <br> Radno vrijeme: <br> {{form.bolnicavrijeme}} </b-card-text>
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected5" :options="options5">
             <template #first>
@@ -104,6 +104,55 @@
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected5 }}  Kn </strong></div>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+            <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-6 variant="info">Parking Riva</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-6" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card-text>Cijena: {{form.riva}} Kn/h  <br> Radno vrijeme: <br> {{form.rivavrijeme}} </b-card-text>
+          <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
+            <b-form-select v-model="selected6" :options="options6">
+            <template #first>
+            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            </template>
+            </b-form-select>
+            <div class="mt-3">Konacna cijena: <strong>{{ selected6 }}  Kn </strong></div>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+            <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-7 variant="info">Parking Verudela</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-7" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card-text>Cijena: {{form.verudela}} Kn/h  <br> Radno vrijeme: <br> {{form.verudelavrijeme}} </b-card-text>
+          <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
+            <b-form-select v-model="selected7" :options="options7">
+            <template #first>
+            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            </template>
+            </b-form-select>
+            <div class="mt-3">Konacna cijena: <strong>{{ selected7 }}  Kn </strong></div>
+        </b-card-body>
+      </b-collapse>
+    </b-card>
+
+            <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-8 variant="info">Parking A.Kolodvor</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-8" accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card-text id="demo">Cijena: {{form.autobusna}} Kn/h  <br> Radno vrijeme: {{form.autobusnavrijeme}} </b-card-text>
+          <b-card-text><b>Ovaj parking se ne naplaćuje! </b></b-card-text>
+            <div class="mt-3">Konacna cijena: <strong> 0 Kn </strong></div>
         </b-card-body>
       </b-collapse>
     </b-card>
@@ -133,35 +182,74 @@ import Footer from '@/components/Footer.vue';
 
 var dnevna = '';
 
-var GivenDate = '2021-06-01';
-var GivenDate2 = '2024-09-01';
-var CurrentDate = new Date();
-GivenDate = new Date(GivenDate);
-GivenDate2 = new Date(GivenDate2);
+//var CurrentDate = new Date();
+//GivenDate = new Date(GivenDate);
+//GivenDate2 = new Date(GivenDate2);
+const monthNames = ["Siječanj", "Veljača", "Ožujak", "Travanj", "Svibanj", "Lipanj",
+  "Srpanj", "Kolovoz", "Rujan", "Listopad", "Studeni", "Prosinac"
+];
+const d = new Date();
+var month = d.getMonth();
+console.log("Trenutni mjesec je " + monthNames[d.getMonth()]);
+
+let rojcvrijeme = null;
+let karolinavrijeme = null;
+let trznicavrijeme = null;
+let dobricevavrijeme = null;
+let bolnicavrijeme = null;
+let rivavrijeme = null;
+let verudelavrijeme = null;
+let autobusnavrijeme = null;
+
 
 var rojc ='';
 var karolina ='';
 var trznica ='';
 var dobriceva ='';
 var bolnica ='';
+var riva ='';
+var verudela ='';
+var autobusna ='';
 
-if (CurrentDate >= GivenDate && CurrentDate <= GivenDate2){
+if (month >= 5 && month < 8){
     console.log("Ljetno računanje cijena");
     rojc = 8;
+    rojcvrijeme = "Pon-Pet: 08-21 || Sub: 10-21 || Ned: 11-21";
     karolina = 10;
+    karolinavrijeme = "Pon-Pet: 09-21 || Sub: 08-22 || Ned: 10-22";
     trznica = 8;
+    trznicavrijeme = "Pon-Pet: 09-21 || Sub: 10-21 || Ned: 10-20";
     dobriceva = 9;
+    dobricevavrijeme = "Pon-Pet: 09-20 || Sub: 08-20 || Ned: 10-20";
     bolnica = 8; 
-    dnevna = 50;
+    bolnicavrijeme = "Pon-Pet: 08-20 || Sub: 09-21 || Ned: 11-21";
+    dnevna = 60;
+    riva = 13; 
+    rivavrijeme = "Pon-Pet: 08-20 || Sub: 10-21 || Ned: 11-21";
+    verudela = 15;
+    verudelavrijeme = "Pon-Pet: 08-22 || Sub: 10-23 || Ned: 11-23";
+    autobusna = 0;
+    autobusnavrijeme = "0/24h";
 }
-  else if (CurrentDate >= GivenDate2 && CurrentDate <= GivenDate) {
+  else if (month < 8 && month < 5) {
     console.log("Zimsko računanje cijena");
     rojc = 6;
+    rojcvrijeme = "Pon-Pet: 12-20 || Sub: 12-19 || Ned: 11-19";
     karolina = 6;
+    karolinavrijeme ="Pon-Pet: 08-20 || Sub: 10-20 || Ned: 11-20";
     trznica = 7;
+    trznicavrijeme = "Pon-Pet: 07-19 || Sub: 09-19 || Ned: 10-18";
     dobriceva = 7;
-    bolnica = 5; 
+    dobricevavrijeme ="Pon-Pet: 11-21 || Sub: 08-22 || Ned: 09-21";
+    bolnica = 5;
+    bolnicavrijeme = "Pon-Pet: 07-19 || Sub: 10-19 || Ned: 11-19";
+    riva = 7;
+    rivavrijeme = "Pon-Pet: 12-19 || Sub: 12-18 || Ned: 12-18";
+    verudela = 5;
+    verudelavrijeme = "Pon-Pet: 12-19 || Sub: 12-19 || Ned: 12-18";
+    autobusna = 0; 
     dnevna = 40;
+    autobusnavrijeme = "0/24h";
 }
 else ( alert("Greska u racunanju datuma.") )
 
@@ -176,10 +264,21 @@ else ( alert("Greska u racunanju datuma.") )
         quantity: null,
         total: null,
         rojc: rojc,
+        rojcvrijeme: rojcvrijeme,
         karolina: karolina,
+        karolinavrijeme: karolinavrijeme,
         trznica: trznica,
+        trznicavrijeme: trznicavrijeme, 
         dobriceva: dobriceva,
-        bolnica: bolnica
+        dobricevavrijeme: dobricevavrijeme,
+        bolnica: bolnica,
+        bolnicavrijeme: bolnicavrijeme,
+        riva: riva,
+        rivavrijeme: rivavrijeme,
+        verudela: verudela,
+        verudelavrijeme: verudelavrijeme,
+        autobusna: autobusna,
+        autobusnavrijeme: autobusnavrijeme
       },
         selected: null,
         options: [
@@ -225,9 +324,28 @@ else ( alert("Greska u racunanju datuma.") )
           { value: bolnica*4, text: '4 sata' },
           { value: bolnica*5, text: '5 sati' },
           { value: dnevna, text: 'više od 5 sati' },
-        ]
+        ],
+        selected6: null,
+        options6: [
+          { value: riva, text: '1 sat' },
+          { value: riva*2, text: '2 sata' },
+          { value: riva*3, text: '3 sata' },
+          { value: riva*4, text: '4 sata' },
+          { value: riva*5, text: '5 sati' },
+          { value: dnevna, text: 'više od 5 sati' },
+        ],
+        selected7: null,
+        options7: [
+          { value: verudela, text: '1 sat' },
+          { value: verudela*2, text: '2 sata' },
+          { value: verudela*3, text: '3 sata' },
+          { value: verudela*4, text: '4 sata' },
+          { value: verudela*5, text: '5 sati' },
+          { value: dnevna, text: 'više od 5 sati' },
+        ],
       }
     },
+
      methods: {
     updateQuantity: function() {
         var unos=document.getElementById("quantity").value
