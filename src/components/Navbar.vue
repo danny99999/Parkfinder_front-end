@@ -29,7 +29,7 @@
       
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto" id="profil">
-        <b-form-input class="mr-sm-2" placeholder="Pretraži parking..."></b-form-input>
+        <b-form-input v-model="store.searchTerm" class="mr-sm-2" placeholder="Pretraži parking..."></b-form-input>
         <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">Traži</b-button>
         <b-nav-item class="Item-1" href="/obavijesti">Obavijesti</b-nav-item>
         <b-nav-item-dropdown text="Profil" id="profil1">
@@ -51,11 +51,17 @@
 <script>
 import {firebase} from '@/firebase';
 import DigitalClock from "vue-digital-clock";
+import store from "@/store"
 
 export default {
   name: "Navbar",
   components: {
     DigitalClock,
+  },
+  data() {
+    return {
+       store
+    };
   },
   methods: {
     logout() {

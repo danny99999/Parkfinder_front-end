@@ -18,7 +18,6 @@
 </template>
 
 <script>
-let kartice = [];
 
 /*kartice = [
   {
@@ -57,6 +56,11 @@ import Kartica from "@/components/Kartica.vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/store";
+import {test} from "@/services";
+import _ from 'lodash';
+import {kartice} from "@/services";
+
+console.log("Testiranje importa", test)
 
 export default {
   name: "Home",
@@ -65,33 +69,31 @@ export default {
     Navbar,
     Footer
   },
-  data: function() {
+  data() {
     return {
-      kartice,
-      store
+      store,
+      kartice: [],
     };
   },
-  mounted () {
-    this.kartice= []
-  fetch("http://localhost:3200/kartice")
-  .then(r=> {
-    return r.json()
-  })
-  .then(data => {
-    console.log("Podaci s backenda", data)
+  watch: {
+  "store.searchTerm": _.debounce(function(val){
+      this.fetchKartice(val)
+  }, 500)
 
-   let data2= data.map(element=> {
-      return {
-        url: element.url_b,
-        naslov: element.naslov_b,
-        router: element.router_b
-
-      }
-    })
-    this.kartice= data2
-
-  })
+  },
+  mounted() {
+    this.fetchKartice()
+  },
+  methods: {  
+  async fetchKartice(term) {
+  term = term || store.searchTerm
+  
+  this.kartice = await kartice.getAll(term)
+  },
+  
 }
+
+
 };
 </script>
 

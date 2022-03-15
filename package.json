@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "@codekraft-studio/vue-animated": "^0.1.5",
+    "axios": "^0.26.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
     "firebase": "^8.3.1",
+    "lodash": "^4.17.21",
     "store": "^2.0.12",
     "vee-validate": "^4.2.3",
     "vue": "^2.6.12",
