@@ -7,7 +7,7 @@ let Service = axios.create({
 
 let kartice = {
    async getAll(searchTerm) {
-        let response = await Service.get(`/kartice?naslov=${searchTerm}`)
+        let response = await Service.get(`/kartice?naslov_b=${searchTerm}`)
         let data = response.data
         data=data.map(element=> {
             return {

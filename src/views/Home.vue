@@ -85,15 +85,12 @@ export default {
     this.fetchKartice()
   },
   methods: {  
-  async fetchKartice(term) {
-  term = term || store.searchTerm
+    async fetchKartice(term) {
+    term = term || store.searchTerm
   
-  this.kartice = await kartice.getAll(term)
-  },
-  
+    this.kartice = await kartice.getAll(term)
+  }, 
 }
-
-
 };
 </script>
 
