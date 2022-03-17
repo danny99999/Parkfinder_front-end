@@ -29,8 +29,7 @@
       
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto" id="profil">
-        <b-form-input v-model="store.searchTerm" class="mr-sm-2" placeholder="Pretraži parking..."></b-form-input>
-        <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">Traži</b-button>
+        <b-form-input v-model="store.searchTerm" class="mr-sm-2" type="search" placeholder="Pretraži parking..."></b-form-input>
         <b-nav-item class="Item-1" href="/obavijesti">Obavijesti</b-nav-item>
         <b-nav-item-dropdown text="Profil" id="profil1">
           <b-dropdown-item href="/Moj_Profil">Moj Profil</b-dropdown-item>

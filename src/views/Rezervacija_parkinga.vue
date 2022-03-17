@@ -60,15 +60,15 @@ export default {
         },
      methods: {
         saljipodatke() {
-            if (this.Ime === '' || this.Ime === null || this.Ime.value === 0){
+            if (this.Ime === '' || this.Ime === null || this.Ime === 0){
                 alert("Unesite Vaše ime!");
             }
 
-            else if (this.Prezime === '' || this.Prezime === null || this.Prezime.value === 0){
+            else if (this.Prezime === '' || this.Prezime === null || this.Prezime === 0){
                 alert("Unesite Vaše prezime!");
             }
 
-            else if (this.Phonenumber === '' || this.Phonenumber === null || this.Phonenumber.value === 0){
+            else if (this.Phonenumber === '' || this.Phonenumber === null || this.Phonenumber === 0){
                 alert("Unesite Vaš broj telefona!");
             }
             else {

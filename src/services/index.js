@@ -11,6 +11,7 @@ let kartice = {
         let data = response.data
         data=data.map(element=> {
             return {
+              id: element._id,
               url: element.url_b,
               naslov: element.naslov_b,
               router: element.router_b
