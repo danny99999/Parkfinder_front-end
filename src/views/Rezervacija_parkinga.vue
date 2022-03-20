@@ -7,6 +7,7 @@
     <br>
     <h2><b>Upišite svoje osobne podatke</b></h2>
 <div class="form-group6">
+    <form>
     <br>
     <label class="Ime">Ime</label>
                 <input 
@@ -19,18 +20,21 @@
                 <input
                     v-model="podaci.Prezime"
                     class="form-control" 
-                    placeholder="Prezime" >
+                    placeholder="Prezime">
             <br>
            <br>
                 <label class= "br">Broj mobitela</label>
                 <input
+                    type="number"
                     v-model="podaci.Phonenumber"
                     class="form-control" 
-                    placeholder="Br. telefona" >
+                    placeholder="Br. telefona"
+                    minlength="8" >
             <br>
             <b-button class="btnn" type="button" variant="danger" @click="saljipodatke">Dalje</b-button>        
             <br/>    
             <br/>
+    </form>
 </div>      
     <Footer></Footer>
 
@@ -41,6 +45,7 @@
 
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
+import { kartice } from '@/services';
 
 
 export default {
@@ -60,27 +65,34 @@ export default {
         },
      methods: {
         saljipodatke() {
-            if (this.Ime === '' || this.Ime === null || this.Ime === 0){
+            if (this.podaci.Ime === '' || this.podaci.Ime === null || this.podaci.Ime === 0){
                 alert("Unesite Vaše ime!");
             }
 
-            else if (this.Prezime === '' || this.Prezime === null || this.Prezime === 0){
+            else if (this.podaci.Prezime === '' || this.podaci.Prezime === null || this.podaci.Prezime === 0){
                 alert("Unesite Vaše prezime!");
             }
 
-            else if (this.Phonenumber === '' || this.Phonenumber === null || this.Phonenumber === 0){
+            else if (this.podaci.Phonenumber === '' || this.podaci.Phonenumber === null || this.podaci.Phonenumber === 0){
                 alert("Unesite Vaš broj telefona!");
             }
             else {
-                this.$router.push({name: "Podaci_vozila"});
+                let podaci = {
+                    Ime: this.podaci.Ime,
+                    Prezime: this.podaci.Prezime,
+                    Phonenumber: this.podaci.Phonenumber
+                    }
+                kartice.create(podaci)
+                    .then(() => {
+                        this.$router.push({name: "Podaci_vozila"})
+                    })
                 }
-
             },
 },
-
+/*
  mounted () {
     this.podaci= []
-  fetch("http://localhost:3200/osobni_podaci_memory")
+  fetch("http://localhost:3200/Rezervacija_parkinga")
   .then(r=> {
     return r.json()
   })
@@ -95,9 +107,9 @@ export default {
       }
     })
     this.podaci= data2
-
   })
 }
+*/
 };
  
 </script>
@@ -120,5 +132,4 @@ export default {
 .form-control{
     border: 2px solid black !important;
 }
-
 </style>

@@ -43,6 +43,7 @@
 
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
+import { kartice } from '@/services'
 
 export default {
     name: "Podaci_vozila",
@@ -59,19 +60,27 @@ export default {
         },
      methods: {
         saljipodatkevozila() {
-            if (this.markaimodel === '' || this.markaimodel === null || this.markaimodel.value === 0){
+            if (this.markaimodel === '' || this.markaimodel === null || this.markaimodel === 0){
                 alert("Unesite Vašu marku i model vozila!");
             }
 
-            else if (this.registracija === '' || this.registracija === null || this.registracija.value === 0){
+            else if (this.registracija === '' || this.registracija === null || this.registracija === 0){
                 alert("Unesite Vašu registraciju!");
             }
 
-            else if (this.bojavozila === '' || this.bojavozila === null || this.bojavozila.value === 0){
+            else if (this.bojavozila === '' || this.bojavozila === null || this.bojavozila === 0){
                 alert("Unesite Vašu boju vozila!");
             }
             else {
-                this.$router.push({name: "Podaci_rezervacije"});
+                let podaci2 = {
+                    Marka_i_model: this.markaimodel,
+                    Bojavozila: this.bojavozila,
+                    Registracija: this.registracija
+                    }
+                kartice.create2(podaci2)
+                    .then(() => {
+                        this.$router.push({name: "Podaci_rezervacije"})
+                    })
                 }
             },
             }

@@ -9,20 +9,28 @@
     <div class="form-group6">
     <br>
     <label for="example-datepicker">Odaberite datum</label>
-    <b-form-datepicker v-model="value" :min="min" :max="max" locale="hr" class="form-kontrola"></b-form-datepicker>
+    <b-form-datepicker v-model="izaberidatum" :min="min" :max="max" locale="hr" class="form-kontrola"></b-form-datepicker>
            <br>
            <br>
             
                 <label class= "br">Vrijeme boravka na parkingu</label>    
-                <b-form-select v-model="selected" :options="options" class="form-kontrola">--Odaberite jednu od opcija--</b-form-select>    
-            <br>
+                <b-form-select v-model="vrijemeprovedeno" :options="options" class="form-kontrola">
+                    <template #first>
+                    <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+                    </template>
+                </b-form-select>
+           <br>
            <br>
            <br>
                 <label class= "br">Odaberite parking</label>    
-                <b-form-select v-model="selected2" :options="options2" class="form-kontrola">--Odaberite jednu od opcija--</b-form-select>
+                <b-form-select v-model="kojiparking" :options="options2" class="form-kontrola">
+                    <template #first>
+                    <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+                    </template>
+                </b-form-select>
                 <br>
                 <br>
-            <b-button class="btn" type="button" variant="danger" @click="posalji">Potvrdi rezervaciju</b-button> 
+            <b-button class="btn" type="button" variant="danger" @click="posalji">Potvrdi rezervaciju</b-button>
             <br>
             <br>
 
@@ -35,6 +43,7 @@
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
+import { kartice } from '@/services'
 
 export default {
     name: "Podaci_rezervacije",
@@ -55,23 +64,24 @@ export default {
       maxDate.setMonth(maxDate.getMonth() + 1)
       maxDate.setDate(maxDate.getDate())
       return {
-        selected: null,
+        vrijemeprovedeno: null,
         options: [
-          { value: null, text: 'Odaberite vrijeme boravka' },
-          { value: 'a', text: '1 sat' },
-          { value: 'b', text: '2 sata' },
-          { value: 'c', text: '3 sata' },
-          { value: 'd', text: '4 sata' },
-          { value: 'e', text: '5 sati' }
+          { value: '1', text: '1 sat' },
+          { value: '2', text: '2 sata' },
+          { value: '3', text: '3 sata' },
+          { value: '4', text: '4 sata' },
+          { value: '5', text: '5 sati' }
         ],
-        selected2: null,
+        kojiparking: null,
         options2: [
-          { value: null, text: 'Odaberite parking' },
-          { value: '1', text: 'Parking Karolina' },
-          { value: '2', text: 'Parking Dobrićeva' },
-          { value: '3', text: 'Parking Bolnica ' },
-          { value: '4', text: 'Parking Rojc' },
-          { value: '5', text: 'Parking Trznica' }
+          { value: 'Karolina', text: 'Parking Karolina' },
+          { value: 'Dobriceva', text: 'Parking Dobrićeva ul.' },
+          { value: 'Bolnica', text: 'Parking Bolnica ' },
+          { value: 'Rojc', text: 'Parking Rojc' },
+          { value: 'Tržnica', text: 'Parking Tržnica' },
+          { value: 'Riva', text: 'Parking Riva Pula' },
+          { value: 'Verudela', text: 'Parking Verudela' },
+          { value: 'Autobusna', text: 'Parking Autobusni kolodvor' }
         ],
         value: '',
         min: minDate,
@@ -79,20 +89,28 @@ export default {
         }},
      methods: {
         posalji() {
-            if (this.value === '' || this.value === null || this.value === 0){
+            if (this.izaberidatum === '' || this.izaberidatum === null || this.izaberidatum === 0){
                 alert("Unesite datum rezervacije!");
             }
 
-            else if (this.selected === '' || this.selected === null || this.selected.value === 0){
+            else if (this.vrijemeprovedeno === '' || this.vrijemeprovedeno === null || this.vrijemeprovedeno.value === 0){
                 alert("Unesite vrijeme boravka!");
             }
 
-            else if (this.selected2 === '' || this.selected2 === null || this.selected2.value === 0){
+            else if (this.kojiparking === '' || this.kojiparking === null || this.kojiparking.value === 0){
                 alert("Odaberite parking!");
             }
             else {
-                alert("Uspješna rezervacija parkinga!");
-                this.$router.push({name: "Home"});
+                let podaci3 = {
+                    Izabrani_datum: this.izaberidatum,
+                    Provedeno_vrijeme: this.vrijemeprovedeno + " sati",
+                    Koji_parking: this.kojiparking
+                    }
+                kartice.create3(podaci3)
+                    .then(() => {
+                        alert("Uspješna rezervacija parkinga!");
+                        this.$router.push({name: "Home"})
+                    })
                 }
             },
             }

@@ -28,7 +28,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected" :options="options">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected }}  Kn </strong></div>
@@ -46,7 +46,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected2" :options="options2">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected2 }}  Kn </strong></div>
@@ -64,7 +64,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected3" :options="options3">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected3 }}  Kn </strong></div>
@@ -82,7 +82,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected4" :options="options4">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected4 }}  Kn </strong></div>
@@ -100,7 +100,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected5" :options="options5">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected5 }}  Kn </strong></div>
@@ -118,7 +118,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected6" :options="options6">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected6 }}  Kn </strong></div>
@@ -136,7 +136,7 @@
           <b-card-text>Ovdje odaberite vrijeme provedeno na parkingu: </b-card-text>
             <b-form-select v-model="selected7" :options="options7">
             <template #first>
-            <b-form-select-option :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
+            <b-form-select-option disabled :value="null">-- Molimo odaberite jednu od opcija --</b-form-select-option>
             </template>
             </b-form-select>
             <div class="mt-3">Konacna cijena: <strong>{{ selected7 }}  Kn </strong></div>
