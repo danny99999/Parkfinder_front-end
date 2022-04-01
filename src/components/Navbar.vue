@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import {firebase} from '@/firebase';
+import { Auth} from '@/services';
 import DigitalClock from "vue-digital-clock";
 import store from "@/store"
 
@@ -64,15 +64,13 @@ export default {
   },
   methods: {
     logout() {
-      firebase.auth().signOut().then(()=>{
-        this.$router.push({name: "Sign_in"});
-      })
+      Auth.logout();
+      this.$router.go();
     },
   },  
 };
 
 </script>
-
 <style scoped>
 
 #navbarP{

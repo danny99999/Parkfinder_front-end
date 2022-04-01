@@ -2,6 +2,7 @@
 <div>
         <div class="form_group1">
            <Navsignup></Navsignup>
+           <form @submit.prevent="login">
            <div class="form_group2">
             <center>   
             <b-card id="sign">
@@ -12,7 +13,7 @@
             <div class="form-group3">
                 <input 
                     type="email" 
-                    v-model="username" 
+                    v-model="korisnicko_ime" 
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp" 
@@ -24,7 +25,7 @@
             <div class="form-group3">
                 <input 
                     type="password"
-                    v-model="password"
+                    v-model="lozinka"
                     class="form-control" 
                     id="exampleInputPassword1"
                     placeholder="Lozinka" />
@@ -33,7 +34,7 @@
             <br>
           
 
-            <b-button class="btn" type="submit" variant="danger" @click="login">Prijava</b-button>
+            <b-button class="btn" type="submit" variant="danger">Prijava</b-button>
             <br>
             <br>
             <br>
@@ -41,6 +42,7 @@
             </b-card>
             </center>
            </div>
+           </form>
         </div>
         
     <Footer></Footer>
@@ -49,15 +51,12 @@
 </template>
 
 <script>
-
-
-
 import Navsignup from '../components/Navsignup.vue';
 import Footer from '@/components/Footer.vue';
-import {firebase} from '@/firebase';
+import { Auth } from "@/services";
 
 export default {
-    name1: 'Sign_in',
+    name: 'Sign_in',
     components: {
         Navsignup,
         Footer    
@@ -65,41 +64,21 @@ export default {
     
     data() {
         return {
-            username:"",
-            password:""
+            korisnicko_ime:"",
+            lozinka:""
             
         }
     },
     methods: {
-        login() {
-            console.log("login..." + this.username);
-            console.log(this.$router);
-            firebase.auth().signInWithEmailAndPassword(this.username, this.password)
-            .then((result)=> {
-                console.log('Uspješna prijava', result);
-                this.$router.replace({name: 'Home'});
-            })
-            .catch(function(e) {
-                console.error('Greška', e);
-                var errorCode = e.code;
-                var errorMessage = e.message;
-                if (errorCode === 'auth/wrong-password') {
-                    alert('Upišite ispravnu lozinku.');
-                } else {
-                 alert(errorMessage);
-                }
-                console.log(e);
-                
-            });
-        }
-       
-        
-         
+        async login() {
+            let success = await Auth.login(this.korisnicko_ime, this.lozinka);
+            console.log('Rezultat prijave', success);
 
-      
-    }
-    
-    
+            if (success == true) {
+                this.$router.push({ name: "Home" })
+            }
+        },
+    },   
 };
 </script>
 

@@ -19,7 +19,7 @@ import Rezervacije from "@/views/Rezervacije.vue";
 import Riva from "@/views/Riva.vue";
 import Verudela from "@/views/Verudela.vue";
 import Autobusna from "@/views/Autobusna.vue";
-import { firebase } from "@/firebase";
+import { Auth } from "@/services";
 Vue.use(VueRouter);
 
 
@@ -28,92 +28,77 @@ const routes = [
     path: "/home",
     name: "Home",
     component: Home,
-    meta: { requiresAuth: true },
   },
 
   {
     path: "/rojc",
     name: "Rojc",
     component: Rojc,
-    meta: { requiresAuth: true },
   },
   {
     path: "/karolina",
     name: "Karolina",
     component: Karolina,
-    meta: { requiresAuth: true },
   },
   {
     path: "/trznica",
     name: "Trznica",
     component: Trznica,
-    meta: { requiresAuth: true },
   },
   {
     path: "/dobriceva",
     name: "Dobriceva",
     component: Dobriceva,
-    meta: { requiresAuth: true },
   },
   {
     path: "/bolnica",
     name: "Bolnica",
     component: Bolnica,
-    meta: { requiresAuth: true },
   },
   {
     path: "/karta",
     name: "Karta",
     component: Karta,
-    meta: { requiresAuth: true },
   },
   {
     path: "/kalkulator",
     name: "Kalkulator",
     component: Kalkulator,
-    meta: { requiresAuth: true },
   },
   {
     path: "/obavijesti",
     name: "Obavijesti",
     component: Obavijesti,
-    meta: { requiresAuth: true },
   },
   {
     path: "/Rezervacija_parkinga",
     name: "Rezervacija_parkinga",
     component: Rezervacija_parkinga,
-    meta: { requiresAuth: true },
   },
   {
     path: "/Podaci_vozila",
     name: "Podaci_vozila",
     component: Podaci_vozila,
-    meta: { requiresAuth: true },
   },
   {
     path: "/Podaci_rezervacije",
     name: "Podaci_rezervacije",
     component: Podaci_rezervacije,
-    meta: { requiresAuth: true },
   },
   {
     path: "/sign_up",
     name: "Sign_up",
     component: Sign_up,
-    meta: { logged: true },
   },
   {
     path: "/",
     name: "Sign_in",
     component: Sign_in,
-    meta: { logged: true },
   },
   {
     path: "/moj_profil",
     name: "Moj_profil",
     component: Moj_Profil,
-    meta: { requiresAuth: true },
   },
   {
     path: "/rezervacije",
@@ -144,20 +129,16 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
-  const logged = to.matched.some((record) => record.meta.logged);
-  const currentUser = firebase.auth().currentUser;
+  const javneStranice = ["/", "/sign_up"]
+  const loginPotreban = !javneStranice.includes(to.path);
+  const user = Auth.getUser();
 
-  if (requiresAuth && !currentUser) {
+  if (loginPotreban  && !user){
     next("/");
-  } else if (requiresAuth && currentUser) {
-    next();
+    return;
   }
-
-  if (logged && currentUser) {
-    next("home");
-  } else {
-    next();
-  }
+  next();
 });
+
+
 export default router;

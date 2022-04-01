@@ -10,27 +10,27 @@
             <div class="form-group3">
                 <input 
                     type="text"
-                    v-model="ime"
+                    v-model="ime_prezime"
                     class="form-control"
                     placeholder="Ime"
                     required/>
-                    <label for="exampleInputName1">Ime</label>
+                    <label for="exampleInputName1">Ime i prezime</label>
             </div>
             <br>
             <div class="form-group3">
                 <input 
                     type="text"
-                    v-model="prezime"
+                    v-model="grad"
                     class="form-control"
-                    placeholder="Prezime"
+                    placeholder="Grad"
                     required/>
-                    <label for="exampleInputSurname1">Prezime</label>
+                    <label for="exampleInputCity1">Grad</label>
             </div>
             <br>
             <div class="form-group3">
                 <input 
                     type="text"
-                    v-model="username"
+                    v-model="korisnicko_ime"
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp" 
@@ -42,11 +42,11 @@
             <div class="form-group3">
                 <input 
                     type="password"
-                    v-model="password" 
+                    v-model="lozinka" 
                     class="form-control" 
                     id="exampleInputPassword1"
                     placeholder="Lozinka" />
-                    <password-meter :password="password" @score="onScore" />
+                    <password-meter :password="lozinka" @score="onScore" />
                     <span v-if="score === 0"><b>Lozinka je slaba</b><br></span>
                     <label for="exampleInputPassword1">Lozinka<br></label>
 
@@ -56,7 +56,7 @@
             <div class="form-group3">          
                 <input 
                     type="password"
-                    v-model="passwordRepeat" 
+                    v-model="lozinkaRepeat" 
                     class="form-control"
                     id="exampleInputPassword2"
                     placeholder="Ponovite lozinku"/>
@@ -81,11 +81,10 @@
 <script>
 
 import passwordMeter from "vue-simple-password-meter";
-import { firebase } from '@/firebase';
-import { db } from '@/firebase';
-import store from "@/store";
+import { Auth } from '@/services'
 import Navsignup from '../components/Navsignup.vue';
 import Footer from '@/components/Footer.vue';
+
 
 
 export default {
@@ -98,83 +97,42 @@ export default {
  
   data() {
         return {
-            ime:'',
-            prezime:'',
+            ime_prezime:'',
+            grad:'',
             username: '',
-            password: '',
-            passwordRepeat: '',
-            datum_registracije: '',
-            score: null,
-            selectedday: null,
-            selectedmonth: null,
-            selectedyear: null,
-            sveskupaproba: null,
-        };
+            lozinka: '',
+            lozinkaRepeat: '',
+            score: null
+        }
     },
     methods: {
-        signup() {
-            if (this.ime === '' || this.ime === null || this.ime.value === 0){
-                alert("Unesite Vaše ime!");
+       async signup() {
+            if (this.ime_prezime === '' || this.ime_prezime === null || this.ime_prezime === 0){
+                alert("Unesite Vaše ime i prezime");
             }
 
-            else if (this.prezime === '' || this.prezime === null || this.prezime.value === 0){
-                alert("Unesite Vaše prezime!");
+            else if (this.grad === '' || this.grad === null || this.grad === 0){
+                alert("Unesite Vaš grad!");
             }
 
-            else if (this.username === '' || this.username === null || this.username.value === 0){
-                alert("Unesite Vaš E-Mail!");
+            else if (this.korisnicko_ime === '' || this.korisnicko_ime === null || this.korisnicko_ime === 0){
+                alert("Unesite Vaš E-Mail/korisničko ime!");
             }
 
-            else if (this.password === '' || this.password === null){
+            else if (this.lozinka === '' || this.lozinka === null){
                 alert("Unesite Vašu lozinku!");
             }
 
-            else if (this.passwordRepeat != this.password || this.passwordRepeat === '' || this.passwordRepeat === null){
+            else if (this.lozinkaRepeat != this.lozinka || this.passwordRepeat === '' || this.passwordRepeat === null){
                 alert("Vaše lozinke se ne podudaraju!");
             }
 
             else {
-            var currentDate = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-            firebase.auth().createUserWithEmailAndPassword(this.username, this.password)
-            .then(() => {
-                store.id = this.username
-                db.collection("korisnici")
-            .doc(store.id)
-     
-            .set({
-                ime: this.ime,
-                prezime: this.prezime,
-                username: this.username,
-                password: this.password,
-                datum_registracije: currentDate,
-                selectedday: this.selectedday,
-                // dio za dvojku - od selecteda varijable/value slati na Firebase
-                selectedmonth: this.selectedmonth,
-                selectedyear: this.selectedyear,
-                // dio za trojku - napisati kao nekakav datum - nisam siguran ako je tocno
-                sveskupaproba: this.selectedday + "/" + this.selectedmonth + "/" + this.selectedyear,
-              })
-
-                console.log('Uspješna registracija');
-                alert("Dobro došli! ");
-                this.$router.push({name: "Sign_in"});
+                    await Auth.register(this.korisnicko_ime, this.lozinka, this.grad, this.ime_prezime)
+                    console.log("Uspješna registracija")
+                    alert("Dobro došli! ");
+                    this.$router.replace({name: "Sign_in"});
                 }
-            )
-            .catch(function(error) {
-                var errorCode = error.code;
-                if (errorCode === 'auth/email-already-in-use') {
-                    alert('Ovaj račun se već koristi!');
-                }
-                else if (errorCode === 'auth/weak-password') {
-                    alert('Lozinka mora sadržavati minimalno 6 znakova!');
-                }
-                else { 
-                console.error("Došlo je do greške", error),
-                alert('Niste upisali dobru lozinku ili e-mail adresu!');
-                }
-            });  
-            console.log('Nastavak');
-
         }},
 
         onScore({ score, strength }) {
@@ -182,11 +140,10 @@ export default {
             console.log(strength); // one of : 'risky', 'guessable', 'weak', 'safe' , 'secure' 
             this.score = score;
     },
-    },
 
     computed: {
         comparePasswords () {
-            return this.password !== this.passwordRepeat ? 'Lozinka se ne podudara' : ''
+            return this.lozinka !== this.lozinkaRepeat ? 'Lozinka se ne podudara' : ''
         }
     },
 };

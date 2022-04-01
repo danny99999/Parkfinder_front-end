@@ -9,13 +9,13 @@
       <center>
         <h2><b>Informacije o profilu</b></h2>
         <label class="mt-4">E-Mail</label>
-        <p class="form-control" id="frm-ctrl">{{ Korisnik.username }}</p>
-        <label class="mt-4">Ime</label>
-        <p class="form-control" id="frm-ctrl">{{ Korisnik.ime }}</p>
-        <label class="mt-4">Prezime</label>
-        <p class="form-control" id="frm-ctrl">{{ Korisnik.prezime }}</p>
+        <p class="form-control" id="frm-ctrl">{{ auth.userEmail }}</p>
+        <label class="mt-4">Ime i prezime</label>
+        <p class="form-control" id="frm-ctrl">{{ auth.userImePrezime }}</p>
+        <label class="mt-4">Grad</label>
+        <p class="form-control" id="frm-ctrl">{{ auth.userGrad }}</p>
         <label class="mt-4">Datum registracije</label>
-        <p class="form-control" id="frm-ctrl">{{ Korisnik.datum_registracije }}</p>
+        <p class="form-control" id="frm-ctrl">{{ auth.userDatumRegistracije }}</p>
 
         <br />
         <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>        
@@ -29,17 +29,13 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
-import { db } from "@/firebase";
-import store from "@/store";
+import { Auth } from "@/services";
 
 export default {
   name: "Moj_profil",
   data() {
     return {
-      Korisnik: {},
-      username: null,
-      email: null,
-      password: null,
+      auth: Auth.state,
     };
   },
   components: {
@@ -53,20 +49,6 @@ export default {
 
   methods: {
     getPodaci() {
-      db.collection("korisnici")
-        .doc(store.currentUser)
-        .get()
-        .then((doc) => {
-          if (doc.exists) {
-            // console.log("Document data:", doc.data());
-            this.Korisnik = {};
-            this.Korisnik = doc.data();
-            //console.log(this.Korisnik.username);
-          } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-          }
-        });
     },
     mojerezervacije() {
       console.log("Odabrali smo moje rezervacije u moj profil");

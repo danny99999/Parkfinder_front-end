@@ -21,7 +21,7 @@
     "vue-browser-geolocation": "^1.8.0",
     "vue-digital-clock": "^2.0.0",
     "vue-router": "^3.5.1",
-    "vue-simple-password-meter": "0.0.24",
+    "vue-simple-password-meter": "^0.0.24",
     "vue2-google-maps": "^0.10.7",
     "vuejs-datepicker": "^1.6.2",
     "vuelidate": "^0.7.6",
