@@ -13,8 +13,6 @@ import Sign_up from "@/views/Sign_up.vue";
 import Sign_in from "@/views/Sign_in.vue";
 import Moj_Profil from "@/views/Mojprofil.vue";
 import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
-import Podaci_vozila from "@/views/Podaci_vozila.vue";
-import Podaci_rezervacije from "@/views/Podaci_rezervacije.vue";
 import Rezervacije from "@/views/Rezervacije.vue";
 import Riva from "@/views/Riva.vue";
 import Verudela from "@/views/Verudela.vue";
@@ -74,16 +72,6 @@ const routes = [
     path: "/Rezervacija_parkinga",
     name: "Rezervacija_parkinga",
     component: Rezervacija_parkinga,
-  },
-  {
-    path: "/Podaci_vozila",
-    name: "Podaci_vozila",
-    component: Podaci_vozila,
-  },
-  {
-    path: "/Podaci_rezervacije",
-    name: "Podaci_rezervacije",
-    component: Podaci_rezervacije,
   },
   {
     path: "/sign_up",

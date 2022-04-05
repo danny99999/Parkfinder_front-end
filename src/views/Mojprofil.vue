@@ -1,5 +1,5 @@
 <template>
-  <div class="Mapa">
+  <div id="kartica">
     <Navbar></Navbar>
     <b-card>
       <br />
@@ -7,7 +7,9 @@
       <br />
       <br />
       <center>
-        <h2><b>Informacije o profilu</b></h2>
+        <b-card tag="article" style="max-width: 30rem" class="mb-2">
+        <b-card-title><h2><b>Informacije o profilu</b></h2></b-card-title>
+
         <label class="mt-4">E-Mail</label>
         <p class="form-control" id="frm-ctrl">{{ auth.userEmail }}</p>
         <label class="mt-4">Ime i prezime</label>
@@ -16,10 +18,10 @@
         <p class="form-control" id="frm-ctrl">{{ auth.userGrad }}</p>
         <label class="mt-4">Datum registracije</label>
         <p class="form-control" id="frm-ctrl">{{ auth.userDatumRegistracije }}</p>
-
-        <br />
+        <br>
         <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>        
-        <br>   
+        <br>
+        </b-card>
       </center>
     </b-card>
     <Footer></Footer>
@@ -57,21 +59,30 @@ export default {
   },
 };
 </script>
-<style>
-.user-role {
-  color: black;
-}
-div.card {
-  background-color: transparent;
-  color: black;
-  border-radius: 10px;
-  max-width: 1000%;
-  height: 700px;
+<style scoped>
+
+#kartica {
+  margin:auto;
+  width:100%;
 }
 
-#frm-ctrl{
-    max-width: 400px;
-    border: 2px solid black;
+.mb-2, .my-2 {
+  margin-bottom: 2.5rem !important;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 1rem !important;
+}
+
+.mb-2 {
+  overflow: hidden;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: #044ca4 !important;
+  color: white;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: #000;
 }
 
 </style>

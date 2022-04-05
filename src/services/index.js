@@ -25,51 +25,11 @@ Service.interceptors.request.use(
 });
 
 let kartice = {
-  async create(doc){
-    let ServerData = {
-      ime_korisnika: doc.Ime,
-      prezime_korisnika: doc.Prezime,
-      br_telefona: doc.Phonenumber,
-    } 
-    console.log("Spremam na backend", doc)
-   
-    await Service.post("/osobni_podaci", ServerData)
-    return 
-  }, 
-
-  async create2(doc){
-    let ServerData2 = {
-      naziv_vozila: doc.Marka_i_model,
-      boja_vozila: doc.Bojavozila,
-      registracija: doc.Registracija,
-    }
-    console.log("Spremam na backend", doc)
-
-    await Service.post("/podaci_vozila", ServerData2)
-    return 
-  },
-
-  async create3(doc){
-
-    /*Izabrani_datum: this.izaberidatum,
-      Provedeno_vrijeme: this.vrijemeprovedeno,
-      Koji_parking: this.kojiparking */
-
-    let ServerData3 = {
-      Izabrani_datum: doc.Izabrani_datum,
-      Vrijeme_boravka: doc.Provedeno_vrijeme,
-      Koji_parking: doc.Koji_parking,
-    }
-    console.log("Spremam na backend", doc)
-
-    await Service.post("/podaci_rezervacije", ServerData3)
-    return 
-  },
 
    async getAll(searchTerm) {
       let response = await Service.get(`/kartice?naslov_b=${searchTerm}`)
       let data = response.data
-      data=data.map(element=> {
+      data = data.map(element=> {
         return {
           id: element._id,
           url: element.url_b,
@@ -78,7 +38,69 @@ let kartice = {
         };
       });
       return data;
+    },
+};
+
+let Rezervacije = {
+
+  async create(doc){
+    let ServerData = {
+      Ime: doc.Ime,
+      Prezime: doc.Prezime,
+      Broj_telefona: doc.Phonenumber,
+      Marka_i_model: doc.Marka_i_model,
+      Boja_vozila: doc.Bojavozila,
+      Registracija: doc.Registracija,
+      Izabrani_datum: doc.Izabrani_datum,
+      Vrijeme_parkiranja: doc.Provedeno_vrijeme,
+      Koji_parking: doc.Koji_parking,
+      Email: doc.Email
     }
+    
+    let user = ServerData;
+
+    localStorage.setItem("rezervacije", JSON.stringify(user));
+
+    console.log("Spremam na backend", doc)
+  
+    await Service.post('/rezervacije', ServerData)
+    return 
+  }, 
+
+  async getRezervacije() {
+    let response = await Service.get(`/rezervacije`)
+    let data = response.data
+    data = data.map(element=> {
+      return {
+        id: element._id,
+        ime: element.Ime,
+        prezime: element.Broj_telefona,
+        markaimodel: element.Marka_i_model,
+        bojavozila: element.Boja_vozila,
+        registracija: element.Registracija,
+        izabrani_datum: element.Izabrani_datum,
+        vrijeme_parkiranja: element.Vrijeme_parkiranja,
+        koji_parking: element.Koji_parking,
+        email: element.Email,
+        upit_poslan: element.upit_poslan
+      };
+    });
+    return data; 
+  },
+
+  getUserRezervacije() {
+    return JSON.parse(localStorage.getItem("rezervacije"));
+  },
+
+  state: {
+    get rezIme(){
+      let user = Rezervacije.getUserRezervacije()
+      if (user){
+        return user.Ime;
+      }
+      return Rezervacije.getUserRezervacije();
+    },
+  },
 };
 
 let Auth = {
@@ -157,4 +179,4 @@ let Auth = {
 
 };
    
-export {Service, kartice, Auth };
+export {Service, kartice, Auth, Rezervacije };
