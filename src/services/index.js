@@ -67,14 +67,15 @@ let Rezervacije = {
     return 
   }, 
 
-  async getRezervacije() {
-    let response = await Service.get(`/rezervacije`)
+  async getRezervacije(email) {
+    let response = await Service.get(`/rezervacije/${email}`)
     let data = response.data
     data = data.map(element=> {
       return {
         id: element._id,
         ime: element.Ime,
-        prezime: element.Broj_telefona,
+        prezime: element.Prezime,
+        broj_telefona: element.Broj_telefona,
         markaimodel: element.Marka_i_model,
         bojavozila: element.Boja_vozila,
         registracija: element.Registracija,
@@ -90,16 +91,6 @@ let Rezervacije = {
 
   getUserRezervacije() {
     return JSON.parse(localStorage.getItem("rezervacije"));
-  },
-
-  state: {
-    get rezIme(){
-      let user = Rezervacije.getUserRezervacije()
-      if (user){
-        return user.Ime;
-      }
-      return Rezervacije.getUserRezervacije();
-    },
   },
 };
 
