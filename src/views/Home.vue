@@ -56,11 +56,8 @@ import Kartica from "@/components/Kartica.vue";
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/store";
-import {test} from "@/services";
 import _ from 'lodash';
-import {kartice} from "@/services";
-
-console.log("Testiranje importa", test)
+import { kartice } from "@/services";
 
 export default {
   name: "Home",

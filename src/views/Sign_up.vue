@@ -12,7 +12,7 @@
                     type="text"
                     v-model="ime_prezime"
                     class="form-control"
-                    placeholder="Ime"
+                    placeholder="Ime i prezime"
                     required/>
                     <label for="exampleInputName1">Ime i prezime</label>
             </div>
@@ -99,10 +99,11 @@ export default {
         return {
             ime_prezime:'',
             grad:'',
-            username: '',
+            korisnicko_ime: '',
             lozinka: '',
             lozinkaRepeat: '',
-            score: null
+            score: null,
+            onscore: '',
         }
     },
     methods: {
@@ -133,8 +134,8 @@ export default {
                     alert("Dobro došli! ");
                     this.$router.replace({name: "Sign_in"});
                 }
-        }},
-
+        }
+        },
         onScore({ score, strength }) {
             console.log(score); // from 0 to 4
             console.log(strength); // one of : 'risky', 'guessable', 'weak', 'safe' , 'secure' 

@@ -129,7 +129,7 @@ let Auth = {
       return JSON.parse(localStorage.getItem("korisnik"));
     },
     getToken() {
-      let user = Auth.getUser;
+      let user = Auth.getUser();
       if (user && user.token){
         return user.token;
       }

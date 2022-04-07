@@ -18,7 +18,8 @@
                     <input 
                         v-model="Ime"
                         class="form-control" 
-                        placeholder="Ime">
+                        placeholder="Ime"
+                        pattern="[A-Za-z]">
             <br>
             <br>
                     <label class= "prezime">Prezime</label>
@@ -34,7 +35,7 @@
                         v-model="Phonenumber"
                         class="form-control" 
                         placeholder="Br. telefona"
-                        minlength="8" >
+                        min="8">
             <br>
             <hr class="new1">
                 <h2><b>Upišite podatke svog vozila</b></h2>
@@ -170,6 +171,10 @@ export default {
 
             else if (this.Phonenumber === '' || this.Phonenumber === null || this.Phonenumber === 0){
                 alert("Unesite Vaš broj telefona!");
+            }
+
+            else if (this.Phonenumber.length <= 8){
+                alert("Unesite ispravan broj telefona!");
             }
 
             else if (this.Marka_i_model === '' || this.Marka_i_model === null || this.Marka_i_model === 0){
