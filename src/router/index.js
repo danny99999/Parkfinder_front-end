@@ -11,6 +11,7 @@ import Kalkulator from "@/views/Kalkulator.vue";
 import Obavijesti from "@/views/Obavijesti.vue";
 import Sign_up from "@/views/Sign_up.vue";
 import Sign_in from "@/views/Sign_in.vue";
+import Promjena_lozinke from "@/views/Promjena_lozinke.vue";
 import Moj_Profil from "@/views/Mojprofil.vue";
 import Rezervacija_parkinga from "@/views/Rezervacija_parkinga.vue";
 import Rezervacije from "@/views/Rezervacije.vue";
@@ -82,6 +83,11 @@ const routes = [
     path: "/",
     name: "Sign_in",
     component: Sign_in,
+  },
+  {
+    path: "/promjena_lozinke",
+    name: "Promjena_lozinke",
+    component: Promjena_lozinke,
   },
   {
     path: "/moj_profil",

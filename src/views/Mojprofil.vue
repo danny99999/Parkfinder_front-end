@@ -19,7 +19,11 @@
         <label class="mt-4">Datum registracije</label>
         <p class="form-control" id="frm-ctrl">{{ auth.userDatumRegistracije }}</p>
         <br>
-        <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>        
+        <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>
+        <br>
+        <br>
+        <b-button href="/promjena_lozinke">Promjena lozinke.</b-button>
+        <br>
         <br>
         </b-card>
       </center>

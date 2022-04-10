@@ -3,7 +3,7 @@ import $router from '@/router';
 
 let Service = axios.create({
     baseURL: "http://localhost:3200",
-    timeout: 1000
+    timeout: 1500
 });
 
 Service.interceptors.request.use((request) => {
@@ -122,6 +122,18 @@ let Auth = {
       return true;
   },
 
+  async changeUserPassword(korisnicko_ime, stara_lozinka, nova_lozinka){
+    let response = await Service.patch("/users", {
+      korisnicko_ime: korisnicko_ime,
+      nova_lozinka: nova_lozinka,
+      stara_lozinka: stara_lozinka
+    })
+    let user = response.data
+
+    localStorage.setItem("korisnik", JSON.stringify(user));
+
+    return true;
+},
     logout(){
       localStorage.removeItem("korisnik");
     },
