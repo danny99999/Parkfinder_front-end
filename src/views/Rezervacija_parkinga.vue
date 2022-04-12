@@ -10,8 +10,8 @@
     <b-container class="bv-example-row" fluid="md">
     <b-card tag="article" style="max-width: 40rem" class="mb-2">
     <b-col> 
-        <h2><b>Upišite svoje osobne podatke</b></h2>
         <div class="form-group6">
+        <h2><b>Upišite svoje osobne podatke</b></h2>
         <form>
         <br>
         <label class="Ime">Ime</label>
@@ -217,7 +217,6 @@ export default {
                 Rezervacije.create(podaci)
                     .then(() => {
                         alert("Uspješna rezervacija!")
-                        
                         this.$router.push({name: "Home"})
                     })
                 }

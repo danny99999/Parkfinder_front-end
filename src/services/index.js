@@ -122,17 +122,18 @@ let Auth = {
       return true;
   },
 
-  async changeUserPassword(korisnicko_ime, stara_lozinka, nova_lozinka){
-    let response = await Service.patch("/users", {
-      korisnicko_ime: korisnicko_ime,
-      nova_lozinka: nova_lozinka,
-      stara_lozinka: stara_lozinka
-    })
-    let user = response.data
+    async changeUserPassword(korisnicko_ime, stara_lozinka, nova_lozinka, datum_mjenjanja){
+      let response = await Service.patch("/users", {
+        korisnicko_ime: korisnicko_ime,
+        nova_lozinka: nova_lozinka,
+        stara_lozinka: stara_lozinka,
+        datum_mjenjanja: datum_mjenjanja
+      })
+      let user = response.data
 
-    localStorage.setItem("korisnik", JSON.stringify(user));
+      localStorage.setItem("korisnik", JSON.stringify(user));
 
-    return true;
+      return true;
 },
     logout(){
       localStorage.removeItem("korisnik");

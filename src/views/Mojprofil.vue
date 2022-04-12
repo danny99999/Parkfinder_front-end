@@ -22,9 +22,10 @@
         <b-button class="btn" type="button" variant="danger" @click="mojerezervacije">Moje Rezervacije</b-button>
         <br>
         <br>
-        <b-button href="/promjena_lozinke">Promjena lozinke.</b-button>
+        <b-button href="/promjena_lozinke" class="lozinka">Promjena lozinke</b-button>
         <br>
         <br>
+        <b-button class="btn" type="button" variant="danger" @click="logout">Odjava</b-button>
         </b-card>
       </center>
     </b-card>
@@ -49,19 +50,16 @@ export default {
     Footer,
   },
 
-  mounted() {
-    this.getPodaci();
-  },
-
   methods: {
-    getPodaci() {
-    },
     mojerezervacije() {
       console.log("Odabrali smo moje rezervacije u moj profil");
       this.$router.push({name: "Rezervacije"});
     },
+    logout() {
+      Auth.logout();
+      this.$router.go();
   },
-};
+}};
 </script>
 <style scoped>
 
@@ -87,6 +85,12 @@ export default {
   color: white;
   -webkit-text-stroke-width: 0.15px;
   -webkit-text-stroke-color: #000;
+}
+
+.lozinka{
+  background-color: aqua;
+  color: black;
+  
 }
 
 </style>
