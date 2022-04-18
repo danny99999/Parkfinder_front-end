@@ -29,7 +29,6 @@
       
       <!-- Desna strana navbara -->
       <b-navbar-nav class="ml-auto" id="profil">
-        <b-form-input v-model="store.searchTerm" pattern="[A-Ža-ž]" class="mr-sm-2" type="search" placeholder="Pretraži parking..."></b-form-input>
         <b-nav-item class="Item-1" href="/obavijesti">Obavijesti</b-nav-item>
         <b-nav-item-dropdown text="Profil" id="profil1">
           <b-dropdown-item href="/Moj_Profil">Moj Profil</b-dropdown-item>
@@ -48,7 +47,7 @@
 </template>
 
 <script>
-import { Auth} from '@/services';
+import { Auth } from '@/services';
 import DigitalClock from "vue-digital-clock";
 import store from "@/store"
 

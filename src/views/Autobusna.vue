@@ -53,10 +53,12 @@
    </b-row>
    <hr>
    <b-row>
-    <p>Ukupno: 80</p>
-  </b-row>
+    <p>Ukupno: 50</p>
+    <div id="element_id"> </div>
+    </b-row>
      <b-row>
-    <p>Invalidskih: 20</p>
+    <p>Invalidskih: 15</p>
+    <div id="element_id2"> </div>
   </b-row>
   <br>
 </b-container>
@@ -77,7 +79,46 @@ export default {
         Navbar,
         Footer,
     },
+    /*data(){
+      return {
+        number_ukupno: 50,
+        number_inv: 15
+      }
+    },
+    methods: {
+    getRandomInt:function () {
+       this.number_ukupno = Math.floor((Math.random()*51));
+    },
+    getRandomInt2:function () {
+       this.number_inv = Math.floor((Math.random()*16));
+    },
+    },
+    mounted(){
+        setInterval(this.getRandomInt,10000);
+        setInterval(this.getRandomInt2,10000);
+      },  */
 };
+/*
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var ms = 600000 ;
+var func = function () {
+    var randNum = getRandomInt(1, 100);    // Random broj između 1 i 100 (za parking mjesta ukupno)
+    document.getElementById("element_id").innerHTML = randNum;
+};
+
+var func2 = function () {
+    var randNum2 = getRandomInt(1, 10);    // Random broj između 1 i 10 (za parking mjesta ukupno)
+    document.getElementById("element_id2").innerHTML = randNum2;
+};
+
+
+setInterval(func, ms);
+setInterval(func2, ms);
+
+*/
 </script>
 <style>
 

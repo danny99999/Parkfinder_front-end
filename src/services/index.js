@@ -182,5 +182,37 @@ let Auth = {
     },
 
 };
+
+let Obavijesti = {
+
+  async saljiobavijesti(naslov_obavijesti, tekst_obavijesti, datum_obavijesti){
+    let response = await Service.post("/obavijesti", {
+      naslov_obavijesti: naslov_obavijesti,
+      tekst_obavijesti: tekst_obavijesti,
+      datum_obavijesti: datum_obavijesti
+    });
+
+    let obavijesti = response.data;
+    
+    localStorage.setItem("obavijesti", JSON.stringify(obavijesti));
+
+    return true;
+  },
+
+  async getObavijesti() {
+    let response = await Service.get(`/obavijesti`)
+    let data = response.data
+    data = data.map(element=> {
+      return {
+        id: element._id,
+        naslov_obavijesti: element.naslov_obavijesti,
+        tekst_obavijesti: element.tekst_obavijesti,
+        datum_obavijesti: element.datum_obavijesti,
+      };
+    });
+    return data; 
+  }
+};
+
    
-export {Service, kartice, Auth, Rezervacije };
+export {Service, kartice, Auth, Rezervacije, Obavijesti };

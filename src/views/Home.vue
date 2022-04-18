@@ -1,6 +1,6 @@
 <template>
   <div class="nav1">
-    <Navbar></Navbar>
+    <NavbarSearch></NavbarSearch>
     <br />
     <br />
     <br />
@@ -53,7 +53,7 @@
 ];*/
 
 import Kartica from "@/components/Kartica.vue";
-import Navbar from "@/components/Navbar.vue";
+import NavbarSearch from "@/components/NavbarSearch.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/store";
 import _ from 'lodash';
@@ -63,7 +63,7 @@ export default {
   name: "Home",
   components: {
     Kartica,
-    Navbar,
+    NavbarSearch,
     Footer
   },
   data() {

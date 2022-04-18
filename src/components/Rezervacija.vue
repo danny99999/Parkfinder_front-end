@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import { Auth, Rezervacije } from "@/services";
+import { Auth } from "@/services";
 
 export default {
   props: ["info","index"],
@@ -31,7 +31,6 @@ export default {
   data() {
     return {
       auth: Auth.state,
-      rezervacije: Rezervacije.state,
     };
   },
 };
