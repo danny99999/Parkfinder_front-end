@@ -2,7 +2,7 @@ import axios from 'axios';
 import $router from '@/router';
 
 let Service = axios.create({
-    baseURL: "http://localhost:3200",
+    baseURL: "http://localhost:3000",
     timeout: 1500
 });
 
