@@ -94,7 +94,7 @@ export default {
             }
 
              else {
-                    await Auth.changeUserPassword(this.auth.userEmail, this.stara_lozinka, this.nova_lozinka, this.today)
+                    await Auth.changeUserPassword(this.auth.userEmail, this.stara_lozinka, this.nova_lozinka)
                     alert("Promijenili ste lozinku. Molimo, ulogirajte se ponovno.");
                     this.$router.replace({name: "Sign_in"});
                 }
