@@ -38,7 +38,7 @@
             <br>
             <br>
             <br>
-            <b-button href="/sign_up">Nemate račun? Registrirajte se.</b-button>
+            <b-button href="/sign_up">Nemate račun? hahhahahahahRegistrirajte se.</b-button>
             <br>
             <br>
             </b-card>
