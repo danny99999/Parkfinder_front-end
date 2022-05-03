@@ -71,7 +71,6 @@
             <b-button class="btn2" href="/">Već imam račun</b-button>
             <br>
             <br>
-            <b-button class="btn2" href="/promjena_lozinke">Promjena lozinke</b-button>
             </b-card>
             </center>
             </form>
