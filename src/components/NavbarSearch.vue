@@ -111,6 +111,7 @@ hr {
 }
 .ml-auto {
   padding-right: 5%;
+  padding-left: 5%;
 }
 
 #nav-collapse {
